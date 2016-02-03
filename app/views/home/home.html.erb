@@ -1,8 +1,54 @@
-<h1>Welcome to StreetReport</h1>
 
-<h2>The Map</h2>
-<div id="map"></div>
 
-<% form_tag  do %>
 
-<% end %>
+	<div id="main-description">
+		<h2>Welcome to StreetReport</h2>
+			<br><br>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<br><br>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+	</div>
+	<div id="main-map">
+		<div id="map"></div>
+	</div>
+	<div id="map-key">
+		<h2>Map Key</h2>
+			<br>
+			<img src="square.jpg">
+			<br><br>
+			<img src="square.jpg">
+	</div>
+
+		<a href="#">Make a Report</a>
+
+		<div id="report-modal">
+			<%= form_for @report do |f| %>
+				<%= f.label :title %>
+				<%= f.text_field :title %>
+				<%= f.label :description %>
+				<%= f.text_field :body %>
+				<%= f.label :catcalling %>
+				<%= f.check_box :catcall %>
+				<%= f.label :stalking %>
+				<%= f.check_box :stalking %>
+				<%= f.label :threat %>
+				<%= f.check_box :threat %>
+				<%= f.label :touching %>
+				<%= f.check_box :touching %>
+				<%= f.submit %>
+			<% end %>
+		</div>

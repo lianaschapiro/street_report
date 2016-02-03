@@ -1,0 +1,9 @@
+<h1>All Reports</h1>
+
+
+	<% @report.each do |t| %>
+		<p>Title: <%= t.title %></p>
+		<p>Description: <%= t.body %></p>
+		<p>Posted: <%= time_ago_in_words(t.created_at) %></p>
+		<%= link_to "Show Report", report_path(t) %>
+	<% end %>

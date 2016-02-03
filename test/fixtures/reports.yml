@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  Lat: 1.5
+  Lng: 1.5
+  catcall: false
+  stalking: false
+  threat: false
+  touching: false
+
+two:
+  title: MyString
+  body: MyString
+  Lat: 1.5
+  Lng: 1.5
+  catcall: false
+  stalking: false
+  threat: false
+  touching: false

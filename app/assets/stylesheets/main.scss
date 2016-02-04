@@ -1,0 +1,47 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import "nav";
+
+#wrapper {
+	clear: both;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#main-description {
+	float: left;
+	width: 20%;
+	padding: 35px 10px;
+	background-color: #f8f8f8;
+}
+
+#main-map {
+	float: left;
+	width: 55%;
+	padding: 10px;
+}
+
+#map {
+	width: 95%;
+	height: 480px;
+	border: solid 2px black;
+	margin: 30px auto;
+}
+
+#map-key {
+	float: left;
+	width: 20%;
+	padding: 35px 10px;
+	background-color: #f8f8f8;
+}
+
+footer {
+	margin-top: 30px;
+	clear: both;
+	height: 50px;
+	background-color: lightblue;
+}

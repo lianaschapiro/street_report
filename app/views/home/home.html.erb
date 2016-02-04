@@ -23,7 +23,13 @@
 			</p>
 	</div>
 	<div id="main-map">
-		<div id="map"></div>
+		<div id="map">
+		</div>		
+		<form>
+			See reports in your area:
+			<input id="address" type="textbox" placeholder="enter zip code">
+     		<input id="submit" type="button" value="Search">
+     	</form>
 	</div>
 	<div id="map-key">
 		<h2>Map Key</h2>
@@ -31,6 +37,7 @@
 			<img src="square.jpg">
 			<br><br>
 			<img src="square.jpg">
+			<br><br>
 	</div>
 
 		<a href="#">Make a Report</a>
@@ -41,14 +48,29 @@
 				<%= f.text_field :title %>
 				<%= f.label :description %>
 				<%= f.text_field :body %>
+				<br>
 				<%= f.label :catcalling %>
 				<%= f.check_box :catcall %>
 				<%= f.label :stalking %>
 				<%= f.check_box :stalking %>
 				<%= f.label :threat %>
 				<%= f.check_box :threat %>
-				<%= f.label :touching %>
+				<%= f.label :unwanted_touching %>
 				<%= f.check_box :touching %>
+				<%= f.label :inappropriate_comments %>
+				<%= f.check_box :comments %>
+				<%= f.label :indecent_exposure %>
+				<%= f.check_box :exposure %>
+				<%= f.label :assault %>
+				<%= f.check_box :assault %>
+				<%= f.label :taking_photos %>
+				<%= f.check_box :takingphotos %>
+				<%= f.label :inappropriate_gestures %>
+				<%= f.check_box :gestures %>
+				<%= f.label :group_of_harassers %>
+				<%= f.check_box :group %>
+				<%= f.label :rape %>
+				<%= f.check_box :rape %>
 				<%= f.submit %>
 			<% end %>
 		</div>

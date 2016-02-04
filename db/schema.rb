@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203201044) do
+ActiveRecord::Schema.define(version: 20160203232823) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
@@ -22,8 +22,15 @@ ActiveRecord::Schema.define(version: 20160203201044) do
     t.boolean  "stalking"
     t.boolean  "threat"
     t.boolean  "touching"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "comments"
+    t.boolean  "exposure"
+    t.boolean  "assault"
+    t.boolean  "rape"
+    t.boolean  "group"
+    t.boolean  "gestures"
+    t.boolean  "takingphotos"
   end
 
 end

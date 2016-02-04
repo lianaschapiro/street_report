@@ -1,0 +1,21 @@
+nav {
+	background-color: lightblue;
+	overflow: auto;
+	img {
+		height: 35px;
+	}
+	a {
+		text-decoration: none;
+		padding: 10px 5px;
+	}
+	ul.left {
+		float: left;
+	}
+	ul.right {
+		float: right;
+		li {
+		display: inline-block;
+		margin: 10px;
+		}
+	}	
+}

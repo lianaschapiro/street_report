@@ -114,9 +114,9 @@ function geocodeAddress(geocoder, resultsMap) {
 // ######### REPORT MODAL ############
 
 function openReportModal() {
-  $('.report_outer_modal').fadeIn(300);
+  $('.report_outer_modal').fadeIn(200);
 }
 
 function closeReportModal() {
-  $('.report_outer_modal').fadeOut(300);
+  $('.report_outer_modal').fadeOut(200);
 }

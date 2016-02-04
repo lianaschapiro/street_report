@@ -89,11 +89,15 @@ hr {
     	width: 100%;
     	margin: 10px 0 5px 0;
     }
-    .report_title {
+    a {
+    	color: black;
+	}
+	.report_title {
     	display: inline-block;
-    	width: 90%;
-    	margin-bottom: 3%;
-    }
+    	width: 83%;
+    	margin: 2% 0 3% 0;
+    	padding-left: 10%
+	}
     .close_report_modal {
     	display: inline-block;
     	width: 5%;

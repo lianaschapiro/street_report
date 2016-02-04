@@ -20,7 +20,7 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 
-			<a href="#">Make a Report</a>
+			<a id="make_report" onclick="openReportModal()" href="#">Make a Report</a>
 	</div>
 	<div id="main-map">
 		<div id="map">
@@ -52,35 +52,45 @@
 	</div>
 
 
+	<div class="report_outer_modal">
 		<div id="report-modal">
-			<%= form_for @report do |f| %>
-				<%= f.label :title %>
-				<%= f.text_field :title %>
-				<%= f.label :description %>
-				<%= f.text_field :body %>
-				<br>
-				<%= f.label :catcalling %>
-				<%= f.check_box :catcall %>
-				<%= f.label :stalking %>
-				<%= f.check_box :stalking %>
-				<%= f.label :threat %>
-				<%= f.check_box :threat %>
-				<%= f.label :unwanted_touching %>
-				<%= f.check_box :touching %>
-				<%= f.label :inappropriate_comments %>
-				<%= f.check_box :comments %>
-				<%= f.label :indecent_exposure %>
-				<%= f.check_box :exposure %>
-				<%= f.label :assault %>
-				<%= f.check_box :assault %>
-				<%= f.label :taking_photos %>
-				<%= f.check_box :takingphotos %>
-				<%= f.label :inappropriate_gestures %>
-				<%= f.check_box :gestures %>
-				<%= f.label :group_of_harassers %>
-				<%= f.check_box :group %>
-				<%= f.label :rape %>
-				<%= f.check_box :rape %>
-				<%= f.submit %>
+			<h1 class="report_title">Make a Report</h1>
+			<p class="close_report_modal" onclick="closeReportModal()">X</p>
+				<div class="col_container">
+				<%= form_for @report do |f| %>
+					<div class="r_left_col">
+						<%= f.label :title %>
+						<%= f.text_field :title %>
+						<%= f.label :description %>
+						<%= f.text_field :body %>
+						<%= f.submit id: :submit, onclick: :closeReportModal %>
+					</div>
+					
+					<div class="r_right_col">
+						<%= f.label :catcalling %>
+						<%= f.check_box :catcall %>
+						<%= f.label :stalking %>
+						<%= f.check_box :stalking %>
+						<%= f.label :threat %>
+						<%= f.check_box :threat %>
+						<%= f.label :unwanted_touching %>
+						<%= f.check_box :touching %>
+						<%= f.label :inappropriate_comments %>
+						<%= f.check_box :comments %>
+						<%= f.label :indecent_exposure %>
+						<%= f.check_box :exposure %>
+						<%= f.label :assault %>
+						<%= f.check_box :assault %>
+						<%= f.label :taking_photos %>
+						<%= f.check_box :takingphotos %>
+						<%= f.label :inappropriate_gestures %>
+						<%= f.check_box :gestures %>
+						<%= f.label :group_of_harassers %>
+						<%= f.check_box :group %>
+						<%= f.label :rape %>
+						<%= f.check_box :rape %>
+					</div>
+				</div>
 			<% end %>
 		</div>
+	</div>

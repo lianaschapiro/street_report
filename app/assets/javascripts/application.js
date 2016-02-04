@@ -15,49 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-// ##### find user location
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-
-// function initMap() {
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 6
-//   });
-//   var infoWindow = new google.maps.InfoWindow({map: map});
-
-//   // Try HTML5 geolocation.
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       var pos = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude
-//       };
-
-//       infoWindow.setPosition(pos);
-//       infoWindow.setContent('Location found.');
-//       map.setCenter(pos);
-//     }, function() {
-//       handleLocationError(true, infoWindow, map.getCenter());
-//     });
-//   } else {
-//     // Browser doesn't support Geolocation
-//     handleLocationError(false, infoWindow, map.getCenter());
-//   }
-// }
-
-// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//   infoWindow.setPosition(pos);
-//   infoWindow.setContent(browserHasGeolocation ?
-//                         'Error: The Geolocation service failed.' :
-//                         'Error: Your browser doesn\'t support geolocation.');
-// }
-
-// will be the center of the map
-// var myCenter = new google.maps.LatLng(40.7127, -74.0059)
-
 // Describes map we see when loaded
 function initialize() {
   var myCenter = new google.maps.LatLng(40.7127, -74.0059)
@@ -69,7 +26,7 @@ function initialize() {
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
   // defines new info window for user defined area
   var infoWindow = new google.maps.InfoWindow({map: map});
-//Try HTML5 geolocation. finds user location
+//HTML5 geolocation. finds user location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -85,9 +42,15 @@ function initialize() {
     });
   } 
   else {
-    // Browser doesn't support Geolocation
+    // if Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);

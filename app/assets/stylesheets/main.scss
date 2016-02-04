@@ -63,7 +63,7 @@ hr {
     height: 100%;
     top: 0;
     background-color: rgba(255, 255, 255, 0.8);
-    z-index: 999999;
+    z-index: 999997;
     display: none;
     #report-modal {
     	width: 70%;
@@ -74,6 +74,7 @@ hr {
     	margin: auto;
     	margin-top: 4%;
     	overflow: auto;
+        z-index: 999999;
     }
     .col_container {
     	width:95%;

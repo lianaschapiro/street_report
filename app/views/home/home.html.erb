@@ -27,8 +27,8 @@
 		</div>		
 		<form>
 			See reports in your area:
-			<input id="address" type="textbox" placeholder="zip code or address">
-     		<input id="submit" type="button" value="Search">
+			<!-- <input id="address" type="textbox" placeholder="zip code or address">
+     		<input id="submit" type="button" value="Search"> -->
      	</form>
 	</div>
 	<div id="map-key">
@@ -52,18 +52,24 @@
 	</div>
 
 
-	<div onclick="closeReportModal()"class="report_outer_modal">
+	<div class="report_outer_modal">
 		<div id="report-modal">
 			<h1 class="report_title">Make a Report</h1>
 			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
 				<div class="col_container">
-				<%= form_for @report do |f| %>
-					<div class="r_left_col">
+				<input id="address" type="textbox" placeholder="zip code or address">
+     		<input id="submit" type="button" value="Search">
+				<div class="r_left_col">
+					<%= form_for @report do |f| %>
 						<%= f.label :title %>
 						<%= f.text_field :title %>
+						<%= f.label :address %>
+						<%= f.hidden_field :Lat %>
+  						<%= f.hidden_field :Lng %>
 						<%= f.label :description %>
 						<%= f.text_field :body %>
-						<%= f.submit id: :submit, onclick: :closeReportModal %>
+						<%= f.submit id: :submit, onclick: :closeReportModal
+							 %>
 					</div>
 					
 					<div class="r_right_col">

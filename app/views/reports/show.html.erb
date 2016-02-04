@@ -2,3 +2,4 @@
 
 	<p>Title: <%= @report.title %></p>
 	<p>Body: <%= @report.body %></p>
+	<p>Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>

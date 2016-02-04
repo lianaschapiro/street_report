@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-  	@report = Report.find(report_params)
+  	@report = Report.new(report_params)
   	if @report.save
   		flash[:notice] = "Incident recorded"
   		redirect_to root_path

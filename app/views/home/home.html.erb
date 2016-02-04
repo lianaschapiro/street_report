@@ -3,7 +3,6 @@
 
 	<div id="main-description">
 		<h2>Welcome to StreetReport</h2>
-			<br><br>
 			<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -12,7 +11,6 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
-			<br><br>
 			<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -21,13 +19,15 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
+
+			<a href="#">Make a Report</a>
 	</div>
 	<div id="main-map">
 		<div id="map">
 		</div>		
 		<form>
 			See reports in your area:
-			<input id="address" type="textbox" placeholder="enter zip code">
+			<input id="address" type="textbox" placeholder="zip code or address">
      		<input id="submit" type="button" value="Search">
      	</form>
 	</div>
@@ -39,8 +39,18 @@
 			<img src="square.jpg">
 			<br><br>
 	</div>
+	<div id="latest-posts">
+		<h2>Recent Reports</h2>
+			<% @reports.reverse.each do |t| %>
+				<p>Title: <%= t.title %></p>
+				<p>Description: <%= t.body %></p>
+				<p>Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+				<%= link_to "Report details", report_path(t) %>
+				<hr>
+			<% end %>
+			<%= link_to "Show All Reports", reports_path %>
+	</div>
 
-		<a href="#">Make a Report</a>
 
 		<div id="report-modal">
 			<%= form_for @report do |f| %>

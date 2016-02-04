@@ -12,31 +12,46 @@
 	text-align: center;
 }
 
+hr {
+	width: 50%;
+	margin: 5px auto;
+}
+
 #main-description {
 	float: left;
-	width: 20%;
-	padding: 35px 10px;
+	width: 25%;
 	background-color: #f8f8f8;
+	padding: 30px 0px;
+	p{
+		padding: 10px;
+	}
 }
 
 #main-map {
 	float: left;
-	width: 55%;
-	padding: 10px;
+	width: 50%;
 }
 
 #map {
-	width: 95%;
-	height: 480px;
+	width: 90%;
+	height: 500px;
 	border: solid 2px black;
 	margin: 30px auto;
 }
 
 #map-key {
-	float: left;
-	width: 20%;
-	padding: 35px 10px;
+	float: right;
+	width: 25%;
 	background-color: #f8f8f8;
+	padding: 30px 0px;
+}
+
+#latest-posts {
+	clear: both;
+	width: 100%;
+	background-color: pink;
+	margin: 10px auto;
+	padding: 30px 10px;
 }
 
 footer {

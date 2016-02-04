@@ -72,7 +72,7 @@ function initialize() {
 // This loads the map when the page is loaded.
 google.maps.event.addDomListener(window, 'load', initialize);
 
-// This takes an address and geocodes it
+// This takes an address and geocodes it. Code is from Google Maps Javascript API
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {

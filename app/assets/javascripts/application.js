@@ -50,12 +50,13 @@ function initialize() {
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
-}
+  }
 
   // This is a marker
   var marker=new google.maps.Marker({
-  position:myCenter,
+    position:myCenter,
   });
+
 
   // Places the markers on the map
   marker.setMap(map);
@@ -85,7 +86,6 @@ function initialize() {
       placeMarkerAndPanTo(e.latLng, map);
     });
 
-
   function placeMarkerAndPanTo(latLng, map) {
     var marker = new google.maps.Marker({
       position: latLng,
@@ -95,7 +95,6 @@ function initialize() {
     map.panTo(latLng);
   }
 
-
   // This is a new map with a geocoded address
   var geocoder = new google.maps.Geocoder();
 
@@ -104,10 +103,46 @@ function initialize() {
     geocodeAddress(geocoder, map);
   });
 
+
+  //grabs all of the things with the class load_all_markers
+    var things = document.getElementsByClassName('load_all_markers');
+    console.log(things)
+// gets the length of load_all_markers
+    var length = document.getElementsByClassName('load_all_markers').length
+    console.log(length)
+    
+
+    var arr = [];
+
+    for (var i = 0; i < length; i++){
+      arr.push(things[i].dataset.thang);
+    }
+
+    console.log(arr)
+
+    for (var j = 0; j < length; j++){
+      console.log(j)
+      var thung = JSON.parse(arr[j])
+      console.log(thung)
+      var marks=new google.maps.Marker({
+        position: thung,
+        map: map
+      });  
+    }
 }
 
 // This loads the map when the page is loaded.
-google.maps.event.addDomListener(window, 'load', initialize);
+// google.maps.event.addDomListener(document.body, 'load', initialize);
+
+// This creates new markers to populate map from lat/lng values in our database
+// function markers(lat, lng) {
+//   console.log("Hello")
+//     var marker=new google.maps.Marker({
+//       position: new google.maps.LatLng(lat, lng)
+//       });
+//     console.log(lat);
+//     marker.setMap(google.maps.Map(document.getElementById("map")))
+//   }
 
 // This takes an address and geocodes it. Code is from Google Maps Javascript API
 function geocodeAddress(geocoder, resultsMap) {

@@ -23,8 +23,12 @@
 			<a id="make_report" onclick="openReportModal()" href="#">Make a Report</a>
 	</div>
 	<div id="main-map">
+		
 		<div id="map">
-		</div>		
+		
+		</div>	
+
+
 		<form>
 			See reports in your area:
 			<!-- <input id="address" type="textbox" placeholder="zip code or address">
@@ -100,3 +104,9 @@
 			<% end %>
 		</div>
 	</div>
+	<% @reports.each do |r| %>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}'>
+		</div>
+	<% end %>
+	<!--  -->
+	

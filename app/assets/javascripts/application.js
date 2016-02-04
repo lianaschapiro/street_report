@@ -52,13 +52,6 @@ function initialize() {
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-}
-
  // This is a marker
   var marker=new google.maps.Marker({
   position:myCenter,
@@ -117,3 +110,13 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 
+
+// ######### REPORT MODAL ############
+
+function openReportModal() {
+  $('.report_outer_modal').fadeIn(300);
+}
+
+function closeReportModal() {
+  $('.report_outer_modal').fadeOut(300);
+}

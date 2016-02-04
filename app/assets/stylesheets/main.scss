@@ -3,6 +3,7 @@
 	padding: 0;
 }
 
+$box_shadow_color: #cecece;
 @import "nav";
 
 #wrapper {
@@ -36,7 +37,8 @@ hr {
 #map {
 	width: 90%;
 	height: 500px;
-	border: solid 2px black;
+	box-shadow: 0 0 10px $box_shadow_color;
+	// border: solid 2px black;
 	margin: 0px auto 30px;
 }
 
@@ -108,11 +110,6 @@ hr {
     #report_body {
     	height: 230px;
     }
-    // .close_report_modal {
-    // 	position: absolute;
-    // 	top: 0;
-    // 	right: 0;
-    // }
 
 }
 

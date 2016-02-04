@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203232823) do
+ActiveRecord::Schema.define(version: 20160204153957) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160203232823) do
     t.boolean  "group"
     t.boolean  "gestures"
     t.boolean  "takingphotos"
+    t.string   "address"
   end
 
 end

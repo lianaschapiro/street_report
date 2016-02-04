@@ -115,10 +115,20 @@ function geocodeAddress(geocoder, resultsMap) {
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
+      console.log(results[0].geometry.location)
       var marker = new google.maps.Marker({
         map: resultsMap,
         position: results[0].geometry.location
       });
+      /// coordinates
+      var report_lng = marker.position.lng();
+      var report_lat = marker.position.lat();
+
+      document.getElementById("report_Lng").setAttribute("value", report_lng); 
+      document.getElementById("report_Lat").setAttribute("value", report_lat);
+
+      console.log(marker.position.lat())
+      console.log(marker.position.lng())
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

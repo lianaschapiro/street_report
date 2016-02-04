@@ -26,7 +26,7 @@ function initialize() {
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
   // defines new info window for user defined area
   var infoWindow = new google.maps.InfoWindow({map: map});
-//HTML5 geolocation. finds user location
+  // HTML5 geolocation. finds user location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -52,12 +52,12 @@ function initialize() {
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
- // This is a marker
+  // This is a marker
   var marker=new google.maps.Marker({
   position:myCenter,
   });
 
-//   // Places the markers on the map
+  // Places the markers on the map
   marker.setMap(map);
   // Makes the marker bounce
   marker.setAnimation(google.maps.Animation.BOUNCE);
@@ -82,8 +82,8 @@ function initialize() {
 
   // Click on map to set marker
     map.addListener('click', function(e) {
-    placeMarkerAndPanTo(e.latLng, map);
-  });
+      placeMarkerAndPanTo(e.latLng, map);
+    });
 
 
   function placeMarkerAndPanTo(latLng, map) {
@@ -91,8 +91,8 @@ function initialize() {
       position: latLng,
       map: map,
       
-  });
-  map.panTo(latLng);
+    });
+    map.panTo(latLng);
   }
 
 

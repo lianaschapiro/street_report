@@ -27,9 +27,10 @@
 		</div>	
 
 		<form>
-			See reports by area:
-			<input id="address_search" type="textbox" placeholder="zip code or address">
-     		<input id="submit_search" type="button" value="Search">
+			Make a Report: Begin by typing an address:
+			<input id="address" type="textbox" placeholder="zip code or address">
+     		<input id="submit" type="button" value="Search">
+     		<input id="add_report" type="button" value="Add Report" onclick="openReportModal()">
      	</form>
 	</div>
 	<div id="map-key">
@@ -59,8 +60,8 @@
 			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
 				<div class="col_container">
 				<div class="r_left_col">
-				<input id="address" type="textbox" placeholder="zip code or address">
-     			<input id="submit" type="button" value="Search">
+				<!-- <input id="address" type="textbox" placeholder="zip code or address">
+     			<input id="submit" type="button" value="Search"> -->
 					<%= form_for @report do |f| %>
 						<%= f.label :title %>
 						<%= f.text_field :title %>

@@ -25,7 +25,7 @@ function initialize() {
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
   // defines new info window for user defined area
-  var infoWindow = new google.maps.InfoWindow({map: map});
+  // var infoWindow = new google.maps.InfoWindow({map: map});
   // HTML5 geolocation. finds user location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -84,14 +84,15 @@ function initialize() {
   var geocoder = new google.maps.Geocoder();
 
   // This function geocodes the address entered on submit in area search
-  document.getElementById('submit_search').addEventListener('click', function() {
-    var address = document.getElementById("address_search").value;
-    geocodeAddress(geocoder, map,address);
-  });
+  // document.getElementById('submit_search').addEventListener('click', function() {
+  //   var address = document.getElementById("address_search").value;
+  //   geocodeAddress(geocoder, map, address);
+  // });
 
   // This function geocodes the address entered on submit in report modal
   document.getElementById('submit').addEventListener('click', function() {
-    var address = document.getElementById("address_search").value;
+    var address = document.getElementById("address").value;
+    document.getElementById("submit").setAttribute("value", "Address Found!");
     geocodeAddress(geocoder, map, address);
   });
 
@@ -154,7 +155,7 @@ function initialize() {
 }
 
 // This takes an address and geocodes it. Code is from Google Maps Javascript API
-function geocodeAddress(geocoder, resultsMap,address) {
+function geocodeAddress(geocoder, resultsMap, address) {
   // var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -174,7 +175,15 @@ function geocodeAddress(geocoder, resultsMap,address) {
       console.log(marker.position.lat())
       console.log(marker.position.lng())
 
-      document.getElementById("submit").setAttribute("value", "Address Found!");
+      
+
+      if (document.getElementById("submit").onclick == true){
+        console.log("hello");
+        // document.getElementById("submit").setAttribute("value", "Address Found!");
+        // document.getElementById("report_Lng").setAttribute("value", report_lng); 
+        // document.getElementById("report_Lat").setAttribute("value", report_lat);
+      } 
+
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

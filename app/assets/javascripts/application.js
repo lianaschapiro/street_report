@@ -177,12 +177,12 @@ function geocodeAddress(geocoder, resultsMap, address) {
 
       
 
-      if (document.getElementById("submit").onclick == true){
-        console.log("hello");
+      // if (document.getElementById("submit").onclick == true){
+      //   console.log("hello");
         // document.getElementById("submit").setAttribute("value", "Address Found!");
         // document.getElementById("report_Lng").setAttribute("value", report_lng); 
         // document.getElementById("report_Lat").setAttribute("value", report_lat);
-      } 
+      // } 
 
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -194,9 +194,9 @@ function geocodeAddress(geocoder, resultsMap, address) {
 // ######### REPORT MODAL ############
 
 function openReportModal() {
-  $('.report_outer_modal').fadeIn(200);
+  $('#report_outer_modal').fadeIn(200);
 }
 
 function closeReportModal() {
-  $('.report_outer_modal').fadeOut(200);
+  $('#report_outer_modal').fadeOut(200);
 }

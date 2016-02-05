@@ -20,7 +20,7 @@ function initialize() {
   var myCenter = new google.maps.LatLng(40.7127, -74.0059)
   var mapProp = {
     center:myCenter,
-    zoom:15,
+    zoom:14,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
@@ -33,24 +33,9 @@ function initialize() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
       map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
     });
   } 
-  else {
-    // if Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  }
 
   // This is a marker
   var marker = new google.maps.Marker({
@@ -139,7 +124,7 @@ function initialize() {
       });
       addInfoWindow(marks,rTitle)
 
-      // function anchors infowindow to each specific mareker
+      // function anchors infowindow to each specific marker
       function addInfoWindow(marker, message) {
 
             var infoWindow = new google.maps.InfoWindow({

@@ -124,19 +124,19 @@ function initialize() {
     });
     addInfoWindow(marks,rTitle)
 
-    // function anchors infowindow to each specific marker
-    function addInfoWindow(marker, message) {
+      // function anchors infowindow to each specific marker
+      function addInfoWindow(marker, message) {
 
-      var infoWindow = new google.maps.InfoWindow({
-          content: message
-      });
+            var infoWindow = new google.maps.InfoWindow({
+                content: message
+            });
 
-      google.maps.event.addListener(marker, 'click', function () {
-          infoWindow.open(map, marker);
-          map.setZoom(15);
-          map.setCenter(marker.getPosition());
-      });
-    }
+            google.maps.event.addListener(marker, 'click', function () {
+                infoWindow.open(map, marker);
+                map.setZoom(15);
+                map.setCenter(marker.getPosition());
+            });
+        }
     map.setCenter(thung);
   }
 }

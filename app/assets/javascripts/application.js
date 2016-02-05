@@ -154,12 +154,14 @@ function geocodeAddress(geocoder, resultsMap) {
       /// coordinates
       var report_lng = marker.position.lng();
       var report_lat = marker.position.lat();
-
+      // setting hidden form_for fields to the coordinates
       document.getElementById("report_Lng").setAttribute("value", report_lng); 
       document.getElementById("report_Lat").setAttribute("value", report_lat);
 
       console.log(marker.position.lat())
       console.log(marker.position.lng())
+
+      document.getElementById("submit").setAttribute("value", "Address Found!");
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

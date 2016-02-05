@@ -69,7 +69,7 @@ function initialize() {
   google.maps.event.addListener(marker,'click',function() {
     map.setZoom(17);
     map.setCenter(marker.getPosition());
-    });
+  });
 
   // This is the infowindow
   var infowindow = new google.maps.InfoWindow({

@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
   		redirect_to root_path
   	else
   		flash[:notice] = "Unable to record incident"
-  		render "back"
+  		redirect_to root_path
   	end
   end
 

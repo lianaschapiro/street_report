@@ -19,15 +19,12 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
-
 			<a id="make_report" onclick="openReportModal()" href="#">Make a Report</a>
 	</div>
 	<div id="main-map">
 		
 		<div id="map">
-		
 		</div>	
-
 
 		<form>
 			See reports in your area:
@@ -72,8 +69,7 @@
   						<%= f.hidden_field :Lng %>
 						<%= f.label :description %>
 						<%= f.text_field :body %>
-						<%= f.submit id: :submit, onclick: :closeReportModal
-							 %>
+						<%= f.submit id: :submit, onclick: :closeReportModal %>
 					</div>
 					
 					<div class="r_right_col">
@@ -108,5 +104,4 @@
 		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>'>
 		</div>
 	<% end %>
-	<!--  -->
 	

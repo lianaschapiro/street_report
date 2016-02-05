@@ -137,6 +137,7 @@ function initialize() {
                 map.setCenter(marker.getPosition());
             });
         }
+        map.setCenter(thung);
     }
 }
 

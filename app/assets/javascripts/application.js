@@ -52,7 +52,7 @@ function initialize() {
 
   // Zoom to 17 on marker click
   google.maps.event.addListener(marker,'click',function() {
-    map.setZoom(17);
+    map.setZoom(15);
     map.setCenter(marker.getPosition());
   });
 
@@ -133,7 +133,7 @@ function initialize() {
 
             google.maps.event.addListener(marker, 'click', function () {
                 infoWindow.open(map, marker);
-                map.setZoom(17);
+                map.setZoom(15);
                 map.setCenter(marker.getPosition());
             });
         }

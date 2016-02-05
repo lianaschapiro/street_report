@@ -113,7 +113,7 @@ function initialize() {
     
 
     var arr = [];
-
+  // iterates through the 
     for (var i = 0; i < length; i++){
       arr.push(things[i].dataset.thang);
     }
@@ -130,19 +130,6 @@ function initialize() {
       });  
     }
 }
-
-// This loads the map when the page is loaded.
-// google.maps.event.addDomListener(document.body, 'load', initialize);
-
-// This creates new markers to populate map from lat/lng values in our database
-// function markers(lat, lng) {
-//   console.log("Hello")
-//     var marker=new google.maps.Marker({
-//       position: new google.maps.LatLng(lat, lng)
-//       });
-//     console.log(lat);
-//     marker.setMap(google.maps.Map(document.getElementById("map")))
-//   }
 
 // This takes an address and geocodes it. Code is from Google Maps Javascript API
 function geocodeAddress(geocoder, resultsMap) {

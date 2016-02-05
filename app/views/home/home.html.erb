@@ -61,9 +61,9 @@
 			<h1 class="report_title">Make a Report</h1>
 			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
 				<div class="col_container">
-				<input id="address" type="textbox" placeholder="zip code or address">
-     		<input id="submit" type="button" value="Search">
 				<div class="r_left_col">
+				<input id="address" type="textbox" placeholder="zip code or address">
+     			<input id="submit" type="button" value="Search">
 					<%= form_for @report do |f| %>
 						<%= f.label :title %>
 						<%= f.text_field :title %>

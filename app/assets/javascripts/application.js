@@ -53,7 +53,7 @@ function initialize() {
   }
 
   // This is a marker
-  var marker=new google.maps.Marker({
+  var marker = new google.maps.Marker({
     position:myCenter,
   });
 
@@ -82,18 +82,18 @@ function initialize() {
     });
 
   // Click on map to set marker
-    map.addListener('click', function(e) {
-      placeMarkerAndPanTo(e.latLng, map);
-    });
+  //   map.addListener('click', function(e) {
+  //     placeMarkerAndPanTo(e.latLng, map);
+  //   });
 
-  function placeMarkerAndPanTo(latLng, map) {
-    var marker = new google.maps.Marker({
-      position: latLng,
-      map: map,
+  // function placeMarkerAndPanTo(latLng, map) {
+  //   var marker = new google.maps.Marker({
+  //     position: latLng,
+  //     map: map,
       
-    });
-    map.panTo(latLng);
-  }
+  //   });
+  //   map.panTo(latLng);
+  // }
 
   // This is a new map with a geocoded address
   var geocoder = new google.maps.Geocoder();
@@ -107,42 +107,53 @@ function initialize() {
   //grabs all of the things with the class load_all_markers
     var things = document.getElementsByClassName('load_all_markers');
     console.log(things)
-// gets the length of load_all_markers
+  // gets the length of load_all_markers
     var length = document.getElementsByClassName('load_all_markers').length
-    console.log(length)
+    // console.log(length)
     
 
     var arr = [];
-
+    var arrTitle = []
+  // iterates through things array and adds it to empty arr (dataset.thang refers to html attributte data-thang)
     for (var i = 0; i < length; i++){
       arr.push(things[i].dataset.thang);
+      arrTitle.push(things[i].dataset.title);
     }
+    // arr is now an array of objects in string form
+    // console.log(arr)
+    console.log(arrTitle)
 
-    console.log(arr)
-
+    // iteration of arr and returning it's object form using JSON.parse saved as variable "thung"
     for (var j = 0; j < length; j++){
-      console.log(j)
-      var thung = JSON.parse(arr[j])
-      console.log(thung)
-      var marks=new google.maps.Marker({
+      // console.log(j)
+      var thung = JSON.parse(arr[j]);
+      var rTitle = arrTitle[j];
+
+      // console.log(thung)
+      console.log(rTitle)
+
+      // make new marker with the object thung which contains latitude and longitude
+      var marks = new google.maps.Marker({
         position: thung,
         map: map
-      });  
+      });
+      addInfoWindow(marks,rTitle)
+
+      // function anchors infowindow to each specific mareker
+      function addInfoWindow(marker, message) {
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: message
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infoWindow.open(map, marker);
+                map.setZoom(17);
+                map.setCenter(marker.getPosition());
+            });
+        }
     }
 }
-
-// This loads the map when the page is loaded.
-// google.maps.event.addDomListener(document.body, 'load', initialize);
-
-// This creates new markers to populate map from lat/lng values in our database
-// function markers(lat, lng) {
-//   console.log("Hello")
-//     var marker=new google.maps.Marker({
-//       position: new google.maps.LatLng(lat, lng)
-//       });
-//     console.log(lat);
-//     marker.setMap(google.maps.Map(document.getElementById("map")))
-//   }
 
 // This takes an address and geocodes it. Code is from Google Maps Javascript API
 function geocodeAddress(geocoder, resultsMap) {

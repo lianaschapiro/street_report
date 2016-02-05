@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	<% @reports.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}'>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>'>
 		</div>
 	<% end %>
 	<!--  -->

@@ -27,9 +27,9 @@
 		</div>	
 
 		<form>
-			See reports in your area:
-			<!-- <input id="address" type="textbox" placeholder="zip code or address">
-     		<input id="submit" type="button" value="Search"> -->
+			See reports by area:
+			<input id="address_search" type="textbox" placeholder="zip code or address">
+     		<input id="submit_search" type="button" value="Search">
      	</form>
 	</div>
 	<div id="map-key">
@@ -101,7 +101,7 @@
 		</div>
 	</div>
 	<% @reports.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>'>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "View report", report_path(r) %>' >
 		</div>
 	<% end %>
 	

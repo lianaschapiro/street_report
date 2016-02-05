@@ -23,11 +23,19 @@ class ReportsController < ApplicationController
   end
 
   def edit
+    @report = Report.find(params[:id])
 
   end
 
   def update
-
+    @report = Report.find(params[:id])
+    @report.update(report_params)
+    if @report.save
+      flash[:notice] = "Report edited"
+    else
+      flash[:notice] = "Unable to edit report"
+      render 'edit'
+    end
   end
 
   def destroy

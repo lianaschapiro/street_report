@@ -83,12 +83,6 @@ function initialize() {
   // This is a new map with a geocoded address
   var geocoder = new google.maps.Geocoder();
 
-  // This function geocodes the address entered on submit in area search
-  // document.getElementById('submit_search').addEventListener('click', function() {
-  //   var address = document.getElementById("address_search").value;
-  //   geocodeAddress(geocoder, map, address);
-  // });
-
   // This function geocodes the address entered on submit in report modal
   document.getElementById('submit').addEventListener('click', function() {
     var address = document.getElementById("address").value;
@@ -103,7 +97,6 @@ function initialize() {
   var length = document.getElementsByClassName('load_all_markers').length
     // console.log(length)
     
-
   var arr = [];
   var arrTitle = []
   var arrBody = []
@@ -143,7 +136,6 @@ function initialize() {
       var infoWindow = new google.maps.InfoWindow({
           content: "<b>" + title + "</b><br><br>" + body + "<br>" + details
       });
-
       google.maps.event.addListener(marker, 'click', function () {
           infoWindow.open(map, marker);
           map.setZoom(15);
@@ -172,18 +164,8 @@ function geocodeAddress(geocoder, resultsMap, address) {
       document.getElementById("report_Lng").setAttribute("value", report_lng); 
       document.getElementById("report_Lat").setAttribute("value", report_lat);
 
-      console.log(marker.position.lat())
-      console.log(marker.position.lng())
-
-      
-
-      // if (document.getElementById("submit").onclick == true){
-      //   console.log("hello");
-        // document.getElementById("submit").setAttribute("value", "Address Found!");
-        // document.getElementById("report_Lng").setAttribute("value", report_lng); 
-        // document.getElementById("report_Lat").setAttribute("value", report_lat);
-      // } 
-
+      // console.log(marker.position.lat())
+      // console.log(marker.position.lng())
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

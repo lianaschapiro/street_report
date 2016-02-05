@@ -59,6 +59,20 @@
 				<p>Description: <%= t.body %></p>
 				<p>Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
 				<%= link_to "Report details", report_path(t) %>
+				<% if current_user %>
+					<%= link_to "Edit Report", edit_report_path(t) %>
+					<%= link_to "Delete Report", t, method: :delete %>
+				<% end %>
+					<% t.comments.each do |f| %>
+						<p>Name: <%= f.name %></p>
+						<p>Comment: <%= f.body %></p>
+					<% end %>
+				<%= form_for @comment do |c| %>
+					<%= c.text_field :name, placeholder: :name_optional %>
+					<%= c.text_field :body, placeholder: :comment_on_report %>
+					<%= c.hidden_field :report_id, value: t.id %>
+					<%= c.submit "Comment" %>
+				<% end %>
 				<hr>
 			<% end %>
 			<%= link_to "Show All Reports", reports_path %>

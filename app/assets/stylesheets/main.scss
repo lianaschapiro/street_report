@@ -5,6 +5,7 @@
 
 $box_shadow_color: #cecece;
 @import "nav";
+@import "adminToolbar";
 
 #wrapper {
 	clear: both;
@@ -51,7 +52,7 @@ hr {
 #latest-posts {
 	clear: both;
 	width: 100%;
-	background-color: pink;
+	background-color: #d8d8d8;
 	margin: 0 auto;
 	padding: 30px 10px;
 }
@@ -115,5 +116,5 @@ hr {
 footer {
 	clear: both;
 	height: 50px;
-	background-color: lightblue;
+	background-color: #f8f8f8;
 }

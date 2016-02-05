@@ -1,15 +1,16 @@
-nav {
-	background-color: #d8d8d8;
+.admin_toolbar {
+	background-color: red;
 	overflow: auto;
-	img {
-		height: 35px;
-	}
 	a {
 		text-decoration: none;
 		padding: 10px 5px;
 	}
 	ul.left {
 		float: left;
+		li {
+			margin: 3px 0 0 10px;
+			font-size: 23px;
+		}
 	}
 	ul.right {
 		float: right;

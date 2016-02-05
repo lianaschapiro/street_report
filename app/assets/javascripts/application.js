@@ -90,39 +90,39 @@ function initialize() {
 
 
   //grabs all of the things with the class load_all_markers
-    var things = document.getElementsByClassName('load_all_markers');
-    console.log(things)
+  var things = document.getElementsByClassName('load_all_markers');
+    // console.log(things)
   // gets the length of load_all_markers
-    var length = document.getElementsByClassName('load_all_markers').length
+  var length = document.getElementsByClassName('load_all_markers').length
     // console.log(length)
     
 
-    var arr = [];
-    var arrTitle = []
+  var arr = [];
+  var arrTitle = []
   // iterates through things array and adds it to empty arr (dataset.thang refers to html attributte data-thang)
-    for (var i = 0; i < length; i++){
-      arr.push(things[i].dataset.thang);
-      arrTitle.push(things[i].dataset.title);
-    }
-    // arr is now an array of objects in string form
-    // console.log(arr)
-    console.log(arrTitle)
+  for (var i = 0; i < length; i++){
+    arr.push(things[i].dataset.thang);
+    arrTitle.push(things[i].dataset.title);
+  }
+  // arr is now an array of objects in string form
+  // console.log(arr)
+  // console.log(arrTitle)
 
-    // iteration of arr and returning it's object form using JSON.parse saved as variable "thung"
-    for (var j = 0; j < length; j++){
-      // console.log(j)
-      var thung = JSON.parse(arr[j]);
-      var rTitle = arrTitle[j];
+  // iteration of arr and returning it's object form using JSON.parse saved as variable "thung"
+  for (var j = 0; j < length; j++){
+    // console.log(j)
+    var thung = JSON.parse(arr[j]);
+    var rTitle = arrTitle[j];
 
-      // console.log(thung)
-      console.log(rTitle)
+    // console.log(thung)
+    console.log(rTitle)
 
-      // make new marker with the object thung which contains latitude and longitude
-      var marks = new google.maps.Marker({
-        position: thung,
-        map: map
-      });
-      addInfoWindow(marks,rTitle)
+    // make new marker with the object thung which contains latitude and longitude
+    var marks = new google.maps.Marker({
+      position: thung,
+      map: map
+    });
+    addInfoWindow(marks,rTitle)
 
       // function anchors infowindow to each specific marker
       function addInfoWindow(marker, message) {
@@ -137,8 +137,8 @@ function initialize() {
                 map.setCenter(marker.getPosition());
             });
         }
-        map.setCenter(thung);
-    }
+    map.setCenter(thung);
+  }
 }
 
 // This takes an address and geocodes it. Code is from Google Maps Javascript API

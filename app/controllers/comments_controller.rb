@@ -48,6 +48,6 @@ class CommentsController < ApplicationController
 
   private 
     def comment_params
-      params.require(:comment).permit(:name, :body, :flag, :report_id)
+      params.require(:comment).permit(:name, :body, :flag, :report_id, :humanizer_answer, :humanizer_question_id)
     end
 end

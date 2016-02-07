@@ -94,6 +94,9 @@
 					<%= form_for @comment do |c| %>
 						<%= c.text_field :name, placeholder: "Your name (optional)" %>
 						<%= c.text_field :body, placeholder: :comment_on_report %>
+						<%= c.label :humanizer_answer, @comment.humanizer_question %>
+						<%= c.text_field :humanizer_answer %>
+						<%= c.hidden_field :humanizer_question_id %>
 						<%= c.hidden_field :report_id, value: t.id %>
 						<%= c.hidden_field :flag, value: false %>
 						<%= c.submit "Comment" %>

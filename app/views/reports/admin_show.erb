@@ -1,15 +1,31 @@
 <h1>Report detail</h1>
+<hr>
 	<% @reports.each do |r| %>
-		<% if r.flag_report == true %>
-			<p>Title: <%= r.title %></p>
-			<p>Body: <%= r.body %></p>
-			<p>Posted: <%= time_ago_in_words(r.created_at) %> ago</p>
-			<p><%= link_to "Edit", r %></p>
-			<p><%= link_to "Delete", r %></p>
-			<p></p>
-			<%= form_for r, remote: true do |z| %>
-				<%= z.hidden_field :flag_report , value: false %>
-				<%= z.submit "Unflag" %>
+		<% r.comments.each do |f| %>
+			<% if r.flag_report == true || f.flag == true  %>
+				<h3>~ Report ~</h3>
+				<p>Title: <%= r.title %></p>
+				<p>Body: <%= r.body %></p>
+				<p>Posted: <%= time_ago_in_words(r.created_at) %> ago</p>
+				<%= link_to "Edit Report", edit_report_path(r) %>
+				<%= link_to "Delete Report", r, method: :delete %>
+				<p></p>
+				<% if r.flag_report == true %>
+					<%= form_for r, remote: true do |z| %>
+						<%= z.hidden_field :flag_report , value: false %>
+						<%= z.submit "Unflag", class: :flagged %>
+					<% end %>
+				<% end %>
+				<h3>~ Comments ~</h3>
+				<p>From: <%= f.name %></p>
+				<p>Comment: <%= f.body %></p>
+				<% if f.flag == true %>
+					<%= form_for f, remote: true do |f| %>
+						<%= f.hidden_field :flag , value: false %>
+						<%= f.submit "Unflag", class: :flagged %>
+					<% end %>
+				<% end %>
 			<% end %>
+			<hr>
 		<% end %>
 	<% end %>

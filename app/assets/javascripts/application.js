@@ -132,6 +132,7 @@ function initialize() {
     var infoWindow = new google.maps.InfoWindow({
         content: "<b>" + rTitle + "</b><br><br>" + rBody + "<br>" + rDetails
     });
+    // on click opens InfoWindow ( now only shows one at a time. )
     google.maps.event.addListener(marks, 'click', function () {
         infoWindow.open(map, this);
         map.setZoom(15);

@@ -59,6 +59,10 @@
 				<p>Description: <%= t.body %></p>
 				<p>Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
 				<%= link_to "Report details", report_path(t) %>
+					<%= form_for t do |z| %>
+						<%= z.hidden_field :flag_report , value: true %>
+						<%= z.submit "Flag as Inappropriate" %>
+					<% end %>
 				<% if current_user %>
 					<%= link_to "Edit Report", edit_report_path(t) %>
 					<%= link_to "Delete Report", t, method: :delete %>
@@ -66,6 +70,10 @@
 					<% t.comments.each do |f| %>
 						<p>Name: <%= f.name %></p>
 						<p>Comment: <%= f.body %></p>
+						<%= form_for f do |f| %>
+							<%= f.hidden_field :flag , value: true %>
+							<%= f.submit "Flag as Inappropriate" %>
+						<% end %>
 					<% end %>
 				<%= form_for @comment do |c| %>
 					<%= c.text_field :name, placeholder: :name_optional %>

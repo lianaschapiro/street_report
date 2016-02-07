@@ -62,8 +62,8 @@
 					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
 					<%= link_to "Report details", report_path(t) %>
 
-					<% if t.flag_report == false %>
-						<%= form_for t do |z| %>
+					<% if t.flag_report == false || t.flag_report == nil %>
+						<%= form_for t, remote: true do |z| %>
 							<%= z.hidden_field :flag_report , value: true %>
 							<%= z.submit "⚑ Flag as Inappropriate" %>
 						<% end %>
@@ -82,8 +82,8 @@
 							<p>From: <%= f.name %></p>
 							<p>Comment: <%= f.body %></p>
 
-							<% if f.flag == false %>
-								<%= form_for f do |f| %>
+							<% if f.flag == false || f.flag == nil %>
+								<%= form_for f, remote: true do |f| %>
 									<%= f.hidden_field :flag , value: true %>
 									<%= f.submit "⚑ Flag as Inappropriate" %>
 								<% end %>

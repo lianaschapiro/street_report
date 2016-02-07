@@ -7,6 +7,10 @@ class ReportsController < ApplicationController
   	@report = Report.find(params[:id])
   end
 
+  def admin_show
+    @reports = Report.all
+  end
+
   def new
   	@report = Report.new
   end
@@ -32,7 +36,7 @@ class ReportsController < ApplicationController
     @report.update(report_params)
     if @report.save
       flash[:notice] = "Report edited"
-      redirect_to root_path
+      render root_path
     else
       flash[:notice] = "Unable to edit report"
       render 'edit'

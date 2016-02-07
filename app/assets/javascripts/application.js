@@ -86,7 +86,7 @@ function initialize() {
   // This function geocodes the address entered on submit in report modal
   document.getElementById('submit').addEventListener('click', function() {
     var address = document.getElementById("address").value;
-    document.getElementById("submit").setAttribute("value", "Address Found!");
+    // document.getElementById("submit").setAttribute("value", "Address Found!");
     geocodeAddress(geocoder, map, address);
   });
 
@@ -129,19 +129,14 @@ function initialize() {
       position: thung,
       map: map
     });
-    addInfoWindow(marks,rTitle,rBody,rDetails)
-
-    // function anchors infowindow to each specific marker
-    function addInfoWindow(marker, title, body, details) {
-      var infoWindow = new google.maps.InfoWindow({
-          content: "<b>" + title + "</b><br><br>" + body + "<br>" + details
-      });
-      google.maps.event.addListener(marker, 'click', function () {
-          infoWindow.open(map, marker);
-          map.setZoom(15);
-          map.setCenter(marker.getPosition());
-      });
-    }
+    var infoWindow = new google.maps.InfoWindow({
+        content: "<b>" + rTitle + "</b><br><br>" + rBody + "<br>" + rDetails
+    });
+    google.maps.event.addListener(marks, 'click', function () {
+        infoWindow.open(map, this);
+        map.setZoom(15);
+        map.setCenter(marks.getPosition());
+    });
     map.setCenter(thung);
   }
 }
@@ -163,7 +158,10 @@ function geocodeAddress(geocoder, resultsMap, address) {
       // setting hidden form_for fields to the coordinates
       document.getElementById("report_Lng").setAttribute("value", report_lng); 
       document.getElementById("report_Lat").setAttribute("value", report_lat);
-
+      document.getElementById("submit").setAttribute("value", "Address Found!");
+      // Search button display shows "Search" after three seconds.
+      setTimeout(function(){ 
+        document.getElementById("submit").setAttribute("value", "Search"); }, 3000);
       // console.log(marker.position.lat())
       // console.log(marker.position.lng())
     } else {

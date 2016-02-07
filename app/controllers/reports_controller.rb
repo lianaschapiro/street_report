@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
   	@report = Report.find(params[:id])
   	if @report.destroy
   		flash[:notice] = "Incident report deleted"
-  		redirect_to reports_path
+  		redirect_to root_path
   	else
   		flash[:notice] = "Unable to delete report"
   		render "back"
@@ -56,7 +56,7 @@ class ReportsController < ApplicationController
 
   private
   	def report_params
-  		params.require(:report).permit(:title, :body, :address, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report, :incident_date)
+  		params.require(:report).permit(:title, :body, :address, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report, :incident_date, :humanizer_answer, :humanizer_question_id)
   	end
 
 end

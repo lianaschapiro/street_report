@@ -19,6 +19,8 @@
 				<h3>~ Comments ~</h3>
 				<p>From: <%= f.name %></p>
 				<p>Comment: <%= f.body %></p>
+				<%= link_to "Edit Comment", edit_comment_path(f) %>
+				<%= link_to "Delete Comment", f, method: :delete %>
 				<% if f.flag == true %>
 					<%= form_for f, remote: true do |f| %>
 						<%= f.hidden_field :flag , value: false %>

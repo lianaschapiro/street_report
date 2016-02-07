@@ -36,6 +36,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Report.find(params[:id])
+    if @comment.destroy
+      flash[:notice] = "Comment deleted"
+      redirect_to admin_show_path
+    else
+      flash[:notice] = "Unable to delete comment"
+      render "back"
+    end
   end
 
   private 

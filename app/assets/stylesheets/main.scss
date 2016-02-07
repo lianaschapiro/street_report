@@ -1,9 +1,12 @@
+$box_shadow_color: #cecece;
+$default-red: #600000;
+$default-gray: #f8f8f8;
+
 * {
 	margin: 0;
 	padding: 0;
 }
 
-$box_shadow_color: #cecece;
 @import "nav";
 @import "adminToolbar";
 
@@ -14,15 +17,10 @@ $box_shadow_color: #cecece;
 	text-align: center;
 }
 
-hr {
-	width: 50%;
-	margin: 5px auto;
-}
-
 #main-description {
 	float: left;
 	width: 25%;
-	background-color: #f8f8f8;
+	background-color: $default-gray;
 	padding: 30px 0px;
 	p{
 		padding: 10px;
@@ -45,76 +43,17 @@ hr {
 #map-key {
 	float: right;
 	width: 25%;
-	background-color: #f8f8f8;
+	background-color: $default-gray;
 	padding: 30px 0px;
 }
 
-#latest-posts {
-	clear: both;
-	width: 100%;
-	background-color: #d8d8d8;
-	margin: 0 auto;
-	padding: 30px 10px;
-}
-
-#report_outer_modal {
-	position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    z-index: 999997;
-    display: none;
-    #report-modal {
-    	width: 70%;
-    	height: 80%;
-    	background-color:white;
-    	box-shadow: 0 0 10px #cecece;
-    	border: #cecece solid 1px;
-    	margin: auto;
-    	margin-top: 4%;
-    	overflow: auto;
-        z-index: 999999;
-    }
-    .col_container {
-    	width:95%;
-    	margin: auto;
-    	overflow: auto;
-    }
-    .r_left_col{
-    	width:50%;
-    	float: left;
-    }
-    .r_right_col{
-    	@extend .r_left_col;
-    }
-    input {
-    	width: 100%;
-    	margin: 10px 0 5px 0;
-    }
-    a {
-    	color: black;
-	}
-	.report_title {
-    	display: inline-block;
-    	width: 83%;
-    	margin: 2% 0 3% 0;
-    	padding-left: 10%
-	}
-    .close_report_modal {
-    	display: inline-block;
-    	width: 5%;
-    }
-    #report_title, #submit {
-    	height: 40px;
-    }
-    #report_body {
-    	height: 230px;
-    }
-}
+@import "allReports";
+@import "newReportModal";
 
 footer {
 	clear: both;
 	height: 50px;
-	background-color: #f8f8f8;
+	background-color: $default-gray;
+    line-height: 50px;
+    text-align: center;
 }

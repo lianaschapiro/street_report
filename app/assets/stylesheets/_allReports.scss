@@ -1,0 +1,35 @@
+#reports-wrapper {
+    clear: both;
+    width: 50%;
+    margin: 0 auto;
+    background-color: #d8d8d8;
+}
+
+#reports {
+    height: 400px;
+    overflow: scroll;
+}
+
+#reports-individual {
+    padding: 10px;
+    margin: 15px auto;
+    background-color: white;
+    width: 80%
+}
+
+.report-title {
+    color: red;
+}
+
+.time-posted {
+    font-size: 14px;
+}
+
+.report-body {
+    padding: 10px;
+}
+
+.flagged {
+    background-color: red;
+    color: white;
+}

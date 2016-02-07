@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207140016) do
+ActiveRecord::Schema.define(version: 20160207162449) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160207140016) do
     t.boolean  "takingphotos"
     t.string   "address"
     t.boolean  "flag_report"
+    t.datetime "incident_date"
   end
 
   create_table "users", force: :cascade do |t|

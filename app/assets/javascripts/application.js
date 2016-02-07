@@ -21,7 +21,8 @@ function initialize() {
   var mapProp = {
     center:myCenter,
     zoom:14,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    scrollwheel: false
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
   // defines new info window for user defined area

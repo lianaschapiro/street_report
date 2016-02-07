@@ -74,7 +74,7 @@
 
 					<% if current_user %>
 						<%= link_to "Edit Report", edit_report_path(t) %>
-						<%= link_to "Delete Report", t, method: :delete %>
+						<%= link_to "Delete Report", report_path(t), method: :delete %>
 					<% end %>
 
 					<h4>Comments</h4>
@@ -121,6 +121,9 @@
 		  						<br>
 								<%= f.label :description %>
 								<%= f.text_field :body %>
+								<%= f.label :humanizer_answer, @report.humanizer_question %>
+								<%= f.text_field :humanizer_answer %>
+								<%= f.hidden_field :humanizer_question_id %>
 								<%= f.submit id: :submit, onclick: :closeReportModal %>
 						</div>
 						
@@ -153,7 +156,7 @@
 		</div>
 	</div>
 	<% @reports.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "View report", report_path(r) %>' >
+		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", report_path(r) %>' >
 		</div>
 	<% end %>
 	

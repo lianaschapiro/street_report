@@ -19,6 +19,9 @@
 function initialize() {
   var myCenter = new google.maps.LatLng(40.7127, -74.0059)
   var mapProp = {
+    scrollwheel: false,
+    mapTypeControl: false,
+    streetViewControl: false,
     center:myCenter,
     zoom:14,
     mapTypeId:google.maps.MapTypeId.ROADMAP
@@ -117,6 +120,7 @@ function initialize() {
     var thung = JSON.parse(arr[j]);
     var rTitle = arrTitle[j];
     var rBody = arrBody[j];
+    var rbody = rBody.split(" ").slice(0,5).join(" ");
     var rDetails = arrDetails[j];
 
     // console.log(thung)
@@ -136,7 +140,7 @@ function initialize() {
     // function anchors infowindow to each specific marker
     function addInfoWindow(marker, title, body, details) {
       var infoWindow = new google.maps.InfoWindow({
-          content: "<b>" + title + "</b><br><br>" + body + "<br>" + details
+          content: "<b>" + title + "</b><br><br>" + body + details
       });
       google.maps.event.addListener(marker, 'click', function () {
           infoWindow.open(map, this);

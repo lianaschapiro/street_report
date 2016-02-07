@@ -21,8 +21,7 @@ function initialize() {
   var mapProp = {
     center:myCenter,
     zoom:14,
-    mapTypeId:google.maps.MapTypeId.ROADMAP,
-    scrollwheel: false
+    mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
   // defines new info window for user defined area
@@ -87,7 +86,6 @@ function initialize() {
   // This function geocodes the address entered on submit in report modal
   document.getElementById('submit').addEventListener('click', function() {
     var address = document.getElementById("address").value;
-    // document.getElementById("submit").setAttribute("value", "Address Found!");
     geocodeAddress(geocoder, map, address);
   });
 
@@ -130,15 +128,22 @@ function initialize() {
       position: thung,
       map: map
     });
-    var infoWindow = new google.maps.InfoWindow({
-        content: "<b>" + rTitle + "</b><br><br>" + rBody + "<br>" + rDetails
-    });
-    // on click opens InfoWindow ( now only shows one at a time. )
-    google.maps.event.addListener(marks, 'click', function () {
-        infoWindow.open(map, this);
-        map.setZoom(15);
-        map.setCenter(marks.getPosition());
-    });
+     var infoWindow = new google.maps.InfoWindow({
+          content: "<b>" + rTitle + "</b><br><br>" + rBody + "<br>" + rDetails
+     });
+    addInfoWindow(marks,rTitle,rBody,rDetails)
+
+    // function anchors infowindow to each specific marker
+    function addInfoWindow(marker, title, body, details) {
+      var infoWindow = new google.maps.InfoWindow({
+          content: "<b>" + title + "</b><br><br>" + body + "<br>" + details
+      });
+      google.maps.event.addListener(marker, 'click', function () {
+          infoWindow.open(map, this);
+          map.setZoom(15);
+          map.setCenter(marker.getPosition());
+      });
+    }
     map.setCenter(thung);
   }
 }
@@ -161,9 +166,9 @@ function geocodeAddress(geocoder, resultsMap, address) {
       document.getElementById("report_Lng").setAttribute("value", report_lng); 
       document.getElementById("report_Lat").setAttribute("value", report_lat);
       document.getElementById("submit").setAttribute("value", "Address Found!");
-      // Search button display shows "Search" after three seconds.
       setTimeout(function(){ 
         document.getElementById("submit").setAttribute("value", "Search"); }, 3000);
+
       // console.log(marker.position.lat())
       // console.log(marker.position.lng())
     } else {

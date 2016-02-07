@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/log-in' => 'sessions#new'
   post '/log-in' => 'sessions#create'
   get '/log-out' => 'sessions#destroy'
+  get '/admin_show' => 'reports#admin_show'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

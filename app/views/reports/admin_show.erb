@@ -1,0 +1,15 @@
+<h1>Report detail</h1>
+	<% @reports.each do |r| %>
+		<% if r.flag_report == true %>
+			<p>Title: <%= r.title %></p>
+			<p>Body: <%= r.body %></p>
+			<p>Posted: <%= time_ago_in_words(r.created_at) %> ago</p>
+			<p><%= link_to "Edit", r %></p>
+			<p><%= link_to "Delete", r %></p>
+			<p></p>
+			<%= form_for r, remote: true do |z| %>
+				<%= z.hidden_field :flag_report , value: false %>
+				<%= z.submit "Unflag" %>
+			<% end %>
+		<% end %>
+	<% end %>

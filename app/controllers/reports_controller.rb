@@ -32,6 +32,7 @@ class ReportsController < ApplicationController
     @report.update(report_params)
     if @report.save
       flash[:notice] = "Report edited"
+      redirect_to root_path
     else
       flash[:notice] = "Unable to edit report"
       render 'edit'
@@ -51,7 +52,7 @@ class ReportsController < ApplicationController
 
   private
   	def report_params
-  		params.require(:report).permit(:title, :body, :address, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos)
+  		params.require(:report).permit(:title, :body, :address, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report)
   	end
 
 end

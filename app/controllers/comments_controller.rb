@@ -24,6 +24,15 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    if @comment.save
+      flash[:notice] = "Comment edited"
+      redirect_to root_path
+    else
+      flash[:notice] = "Unable to edit comment"
+      redirect_to root_path
+    end
   end
 
   def destroy

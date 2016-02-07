@@ -14,7 +14,7 @@ $default-gray: #f8f8f8;
 	clear: both;
 	width: 100%;
 	margin: 0 auto;
-	text-align: center;
+	// text-align: center;
 }
 
 #main-description {
@@ -22,6 +22,9 @@ $default-gray: #f8f8f8;
 	width: 25%;
 	background-color: $default-gray;
 	padding: 30px 0px;
+    h2 { 
+        text-align: center;
+    }
 	p{
 		padding: 10px;
 	}
@@ -45,6 +48,54 @@ $default-gray: #f8f8f8;
 	width: 25%;
 	background-color: $default-gray;
 	padding: 30px 0px;
+    h2 {
+        text-align: center;
+    }
+    .key_box {
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        display: inline-block;
+        left: 0;
+    }
+    p {
+        display: inline-block;
+    }
+    .kb2{
+        background-color: blue;
+    }
+    .kb3{
+        background-color: yellow;
+    }
+    .kb4{
+        background-color: green;
+    }
+    .kb5{
+        background-color: purple;
+    }
+    .kb6{
+        background-color: orange;
+    }
+    .kb7{
+        background-color: cyan;
+    }
+    .kb8{
+        background-color: pink;
+    }
+    .kb9{
+        background-color: gray;
+    }
+    .kb10{
+        background-color: white;
+    }
+    .kb11{
+        background-color: sky-blue;
+    }
+    .kb12{
+        background-color: peach;
+    }
+
+
 }
 
 @import "allReports";

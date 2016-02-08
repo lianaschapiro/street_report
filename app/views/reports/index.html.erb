@@ -1,10 +1,13 @@
-<h1>All Reports</h1>
-
-
-	<% @report.each do |t| %>
-		<p>Title: <%= t.title %></p>
-		<p>Description: <%= t.body %></p>
-		<p>Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
-		<%= link_to "Report details", report_path(t) %>
-		<hr>
-	<% end %>
+<div class="all-reports-wrapper">
+	<h2>All Reports</h2>
+	<div class="reports">
+		<% @report.each do |t| %>
+			<div class="reports-individual">
+				<h3 class="report-title"><%= t.title %></h3>
+				<p class="report-body"><%= t.body %></p>
+				<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+				<%= link_to "Report details", report_path(t), class: :report_details %>
+			</div>
+		<% end %>
+	</div>
+</div>

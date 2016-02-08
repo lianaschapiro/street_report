@@ -1,194 +1,105 @@
+<div id="main-description">
+	<h2>Welcome to StreetReport</h2>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+</div>
+<div id="main-map">
+	<div id="map">
+	</div>	
 
+		<form>
+			<label>Search by address:</label> 
+			<input id="address" type="textbox" placeholder="zip code or address">
+     		<input id="submit" type="button" value="Search">
+     	</form>
+     	<form>
+     		<label>To make a report for this address, click here --></label>
+     		<input id="add_report" type="button" value="Add Report" onclick="openReportModal()">
+     	</form>
+</div>
 
-
-	<div id="main-description">
-		<h2>Welcome to StreetReport</h2>
-			<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+<div id="recent-reports-wrapper">
+	<h2>Recent Reports</h2>
+		<%= link_to "[see all]", reports_path, id: :see_all_reports %>
+		<div class="reports">
+		<% @reports.reverse.last(10).each do |t| %>
+			<div class="reports-individual">
+				<h3 class="report-title"> <%= t.title %> </h3>
+				<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
+				<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+				<%= link_to "Report details", report_path(t), class: :report_details %>
+			</div>
+		<% end %>
 	</div>
-	<div id="main-map">
-		<div id="map">
-		</div>	
+</div>
 
-			<form>
-				<label>Search by address:</label> 
-				<input id="address" type="textbox" placeholder="zip code or address">
-	     		<input id="submit" type="button" value="Search">
-	     	</form>
-	     	<form>
-	     		<label>To make a report for this address, click here --></label>
-	     		<input id="add_report" type="button" value="Add Report" onclick="openReportModal()">
-	     	</form>
-	</div>
-
-	<div id="map-key">
-		<h2>Map Key</h2>
-			<br>
-			<div class="key_box kb1"></div>
-			<p>Catcalling</p>
-			<br><br>
-			<div class="key_box kb2"></div>
-			<p>Stalking</p>
-			<br><br>
-			<div class="key_box kb3"></div>
-			<p>Threats</p>
-			<br><br>
-			<div class="key_box kb4"></div>
-			<p>Touching</p>
-			<br><br>
-			<div class="key_box kb5"></div>
-			<p>Inappropriate Comments</p>
-			<br><br>
-			<div class="key_box kb6"></div>
-			<p>Indecent Exposure</p>
-			<br><br>
-			<div class="key_box kb7"></div>
-			<p>Assault</p>
-			<br><br>
-			<div class="key_box kb8"></div>
-			<p>Rape</p>
-			<br><br>
-			<div class="key_box kb9"></div>
-			<p>Group</p>
-			<br><br>
-			<div class="key_box kb10"></div>
-			<p>Unwanted Gestures</p>
-			<br><br>
-			<div class="key_box kb11"></div>
-			<p>Taking Photos</p>
-			<br><br>
-	</div>
-
-	<div id="reports-wrapper">
-		<h2>Reports</h2>
-			<div id="reports">
-			<% @reports.reverse.each do |t| %>
-				<div id="reports-individual">
-					<h3 class="report-title"> <%= t.title %> </h3>
-					<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
-					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
-					<%= link_to "Report details", report_path(t) %>
-
-					<% if t.flag_report == false || t.flag_report == nil %>
-						<%= form_for t, remote: true do |z| %>
-							<%= z.hidden_field :flag_report , value: true %>
-							<%= z.submit "⚑ Flag as Inappropriate" %>
-						<% end %>
-					<% else %>
-						<br>
-						<button class="flagged">This report has been flagged for removal</button>
-					<% end %>
-
-					<% if current_user %>
-						<%= link_to "Edit Report", edit_report_path(t) %>
-						<%= link_to "Delete Report", report_path(t), method: :delete %>
-					<% end %>
-
-					<h4>Comments</h4>
-						<% t.comments.each do |f| %>
-							<p>From: <%= f.name %></p>
-							<p>Comment: <%= f.body %></p>
-
-							<% if f.flag == false || f.flag == nil %>
-								<%= form_for f, remote: true do |f| %>
-									<%= f.hidden_field :flag , value: true %>
-									<%= f.submit "⚑ Flag as Inappropriate" %>
-								<% end %>
-							<% else %>
-								<button class="flagged">This comment has been flagged for removal</button>
-							<% end %>
-						<% end %>
-					<%= form_for @comment do |c| %>
-						<%= c.text_field :name, placeholder: "Your name (optional)" %>
-						<%= c.text_field :body, placeholder: :comment_on_report %>
-						<%= c.label :humanizer_answer, @comment.humanizer_question %>
-						<%= c.text_field :humanizer_answer %>
-						<%= c.hidden_field :humanizer_question_id %>
-						<%= c.hidden_field :report_id, value: t.id %>
-						<%= c.hidden_field :flag, value: false %>
-						<%= c.submit "Comment" %>
-					<% end %>
-				</div>
-			<% end %>
-		</div>
-	</div>
-
-
-	<div id="report_outer_modal">
-		<div id="report-modal">
-			<h1 class="report_title">Make a Report</h1>
-				<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
-					<div class="col_container">
-						<div class="r_left_col">
-							<%= form_for @report do |f| %>
-								<%= f.label :title %>
-								<%= f.text_field :title %>
-								<%= f.label :date_of_incident %>
-								<%= f.date_select :incident_date %>
-								<%= f.hidden_field :Lat %>
-		  						<%= f.hidden_field :Lng %>
-		  						<%= f.hidden_field :flag_report, value: false %>
-		  						<br>
-								<%= f.label :description %>
-								<%= f.text_field :body %>
-								<%= f.label :humanizer_answer, @report.humanizer_question %>
-								<%= f.text_field :humanizer_answer %>
-								<%= f.hidden_field :humanizer_question_id %>
-								<%= f.submit id: :submit, onclick: :closeReportModal %>
-						</div>
-						
-						<div class="r_right_col">
-								<%= f.label :catcalling %>
-								<%= f.check_box :catcall %>
-								<%= f.label :stalking %>
-								<%= f.check_box :stalking %>
-								<%= f.label :threat %>
-								<%= f.check_box :threat %>
-								<%= f.label :unwanted_touching %>
-								<%= f.check_box :touching %>
-								<%= f.label :inappropriate_comments %>
-								<%= f.check_box :mean_comments %>
-								<%= f.label :indecent_exposure %>
-								<%= f.check_box :exposure %>
-								<%= f.label :assault %>
-								<%= f.check_box :assault %>
-								<%= f.label :taking_photos %>
-								<%= f.check_box :takingphotos %>
-								<%= f.label :inappropriate_gestures %>
-								<%= f.check_box :gestures %>
-								<%= f.label :group_of_harassers %>
-								<%= f.check_box :group %>
-								<%= f.label :rape %>
-								<%= f.check_box :rape %>
-								<% end %>
-						</div>
+<div id="report_outer_modal">
+	<div id="report-modal">
+		<h1 class="report_title">Make a Report</h1>
+			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
+				<div class="col_container">
+					<div class="r_left_col">
+						<%= form_for @report do |f| %>
+							<%= f.label :title %>
+							<%= f.text_field :title %>
+							<%= f.label :date_of_incident %>
+							<%= f.date_select :incident_date %>
+							<%= f.hidden_field :Lat %>
+	  						<%= f.hidden_field :Lng %>
+	  						<%= f.hidden_field :flag_report, value: false %>
+	  						<br>
+							<%= f.label :description %>
+							<%= f.text_field :body %>
+							<%= f.label :humanizer_answer, @report.humanizer_question %>
+							<%= f.text_field :humanizer_answer %>
+							<%= f.hidden_field :humanizer_question_id %>
+							<%= f.submit id: :submit, onclick: :closeReportModal %>
 					</div>
-		</div>
+					
+					<div class="r_right_col">
+							<%= f.label :catcalling %>
+							<%= f.check_box :catcall %>
+							<%= f.label :stalking %>
+							<%= f.check_box :stalking %>
+							<%= f.label :threat %>
+							<%= f.check_box :threat %>
+							<%= f.label :unwanted_touching %>
+							<%= f.check_box :touching %>
+							<%= f.label :inappropriate_comments %>
+							<%= f.check_box :mean_comments %>
+							<%= f.label :indecent_exposure %>
+							<%= f.check_box :exposure %>
+							<%= f.label :assault %>
+							<%= f.check_box :assault %>
+							<%= f.label :taking_photos %>
+							<%= f.check_box :takingphotos %>
+							<%= f.label :inappropriate_gestures %>
+							<%= f.check_box :gestures %>
+							<%= f.label :group_of_harassers %>
+							<%= f.check_box :group %>
+							<%= f.label :rape %>
+							<%= f.check_box :rape %>
+							<% end %>
+					</div>
+				</div>
 	</div>
-	<% @reports.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", report_path(r) %>' >
-		</div>
-	<% end %>
+</div>
+<% @reports.each do |r| %>
+	<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", report_path(r) %>' >
+	</div>
+<% end %>
 	

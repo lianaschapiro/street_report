@@ -1,21 +1,35 @@
 nav {
-	background-color: #d8d8d8;
+	background-color: $default-dark-blue;
 	overflow: auto;
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 10;
 	img {
-		height: 35px;
+		height: 55px;
 	}
 	a {
+		color: $default-light-gray;
 		text-decoration: none;
 		padding: 10px 5px;
 	}
 	ul.left {
 		float: left;
+		li {
+		display: inline-block;
+		margin: 5px 0px 0px 10px;
+		font-size: 32px;
+		}
+		a{
+		font-family: 'Oleo Script', cursive;
+		}
 	}
 	ul.right {
 		float: right;
 		li {
 		display: inline-block;
-		margin: 10px 0px;
+		margin: 20px 10px 0px 0px;
 		}
 	}	
 }

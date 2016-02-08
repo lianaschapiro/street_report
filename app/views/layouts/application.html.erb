@@ -4,10 +4,11 @@
   <title>StreetReport</title>
  	
  	<script src="http://maps.googleapis.com/maps/api/js"></script>
+ 	
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
+<link href='https://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<% if current_user %>
@@ -23,7 +24,7 @@
 	<% end %>
 	<nav>
 		<ul class="left">
-			<li><img src="/megaphone.png"></li>
+			<li><%= link_to "StreetReport", root_path %></li>
 		</ul>
 		<ul class="right">
 			<li><%= link_to "MAP", root_path %></li>

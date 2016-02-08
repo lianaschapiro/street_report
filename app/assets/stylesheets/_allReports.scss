@@ -1,38 +1,41 @@
-#reports-wrapper {
-    clear: both;
+.all-reports-wrapper {
+    padding: 30px 0px 0px;
     width: 50%;
+    height: 100%;
     margin: 0 auto;
-    background-color: #d8d8d8;
-    h2 {
-        text-align: center;
+}
+
+#recent-reports-wrapper {
+    float: left;
+    padding: 30px 0px 0px;
+    width: 25%;
+    height: 100%;
+    #see_all_reports {
+        margin-left: 42%;
     }
 }
 
-#reports {
-    height: 400px;
+.reports {
+    height: 90%;
+    margin: 10px 0px 0px;
     overflow: scroll;
 }
 
-#reports-individual {
+.reports-individual {
     padding: 10px;
-    margin: 15px auto;
-    background-color: white;
+    margin: 0px auto 15px;
+    background-color: $default-light-blue;
     width: 80%;
 }
 
 .report-title {
-    color: $default-red;
+    color: $default-orange;
 }
 
-.time-posted {
+.time-posted, .report_details {
     font-size: 14px;
 }
 
 .report-body {
     padding: 10px;
-}
-
-.flagged {
-    background-color: $default-red;
-    color: white;
 }

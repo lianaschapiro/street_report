@@ -3,3 +3,43 @@
 	<p>Title: <%= @report.title %></p>
 	<p>Body: <%= @report.body %></p>
 	<p>Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>
+
+	<% if @report.flag_report == false || @report.flag_report == nil %>
+						<%= form_for @report, remote: true do |z| %>
+							<%= z.hidden_field :flag_report , value: true %>
+							<%= z.submit "⚑ Flag as Inappropriate" %>
+						<% end %>
+					<% else %>
+						<br>
+						<button class="flagged">This report has been flagged for removal</button>
+					<% end %>
+
+					<% if current_user %>
+						<%= link_to "Edit Report", edit_report_path(@report) %>
+						<%= link_to "Delete Report", report_path(@report), method: :delete %>
+					<% end %>
+
+					<h4>Comments</h4>
+						<% @report.comments.each do |f| %>
+							<p>From: <%= f.name %></p>
+							<p>Comment: <%= f.body %></p>
+
+							<% if f.flag == false || f.flag == nil %>
+								<%= form_for f, remote: true do |f| %>
+									<%= f.hidden_field :flag , value: true %>
+									<%= f.submit "⚑ Flag as Inappropriate" %>
+								<% end %>
+							<% else %>
+								<button class="flagged">This comment has been flagged for removal</button>
+							<% end %>
+						<% end %>
+					<%= form_for @comment do |c| %>
+						<%= c.text_field :name, placeholder: "Your name (optional)" %>
+						<%= c.text_field :body, placeholder: :comment_on_report %>
+						<%= c.label :humanizer_answer, @comment.humanizer_question %>
+						<%= c.text_field :humanizer_answer %>
+						<%= c.hidden_field :humanizer_question_id %>
+						<%= c.hidden_field :report_id, value: @report.id %>
+						<%= c.hidden_field :flag, value: false %>
+						<%= c.submit "Comment" %>
+					<% end %>

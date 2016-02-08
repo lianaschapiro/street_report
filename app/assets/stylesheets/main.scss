@@ -1,10 +1,16 @@
 $box_shadow_color: #cecece;
-$default-red: #600000;
-$default-gray: #f8f8f8;
+
+$default-orange: #D75C37;
+$default-light-gray: #f5f5f5;
+$default-dark-gray: #67727A;
+$default-light-blue: #C3D7DF;
+$default-dark-blue: #6991AC;
+
 
 * {
 	margin: 0;
 	padding: 0;
+    font-family: sans-serif;
 }
 
 @import "nav";
@@ -13,18 +19,22 @@ $default-gray: #f8f8f8;
 #wrapper {
 	clear: both;
 	width: 100%;
-	margin: 0 auto;
-	// text-align: center;
+    height: 600px;
+    background-color: $default-light-gray;
+	margin: 60px auto 0px;
+    overflow: auto;
 }
+
+ h2 {
+        text-align: center;
+        color: $default-orange;
+    }
 
 #main-description {
 	float: left;
+    height: 100%;
 	width: 25%;
-	background-color: $default-gray;
-	padding: 30px 0px;
-    h2 { 
-        text-align: center;
-    }
+	padding: 30px 0px 0px;
 	p{
 		padding: 10px;
 	}
@@ -33,78 +43,36 @@ $default-gray: #f8f8f8;
 #main-map {
 	float: left;
 	width: 50%;
-	padding: 30px 0px;
+    height: 100%;
+	padding: 40px 0px 0px;
+    text-align: center;
 }
 
 #map {
-	width: 90%;
+	width: 100%;
 	height: 500px;
-	box-shadow: 0 0 10px $box_shadow_color;
-	margin: 0px auto 30px;
+	margin: 0px auto;
+    z-index: 1;
 }
 
-#map-key {
-	float: right;
-	width: 25%;
-	background-color: $default-gray;
-	padding: 30px 0px;
-    h2 {
-        text-align: center;
-    }
-    .key_box {
-        width: 30px;
-        height: 30px;
-        background-color: red;
-        display: inline-block;
-        left: 0;
-    }
-    p {
-        display: inline-block;
-    }
-    .kb2{
-        background-color: blue;
-    }
-    .kb3{
-        background-color: yellow;
-    }
-    .kb4{
-        background-color: green;
-    }
-    .kb5{
-        background-color: purple;
-    }
-    .kb6{
-        background-color: orange;
-    }
-    .kb7{
-        background-color: cyan;
-    }
-    .kb8{
-        background-color: pink;
-    }
-    .kb9{
-        background-color: gray;
-    }
-    .kb10{
-        background-color: white;
-    }
-    .kb11{
-        background-color: sky-blue;
-    }
-    .kb12{
-        background-color: peach;
-    }
-
-
+form {
+    margin-top: 15px;
 }
 
 @import "allReports";
 @import "newReportModal";
 
+
+.flagged {
+    background-color: $default-orange;
+    color: white;
+}
+
 footer {
 	clear: both;
+    color: $default-light-gray;
 	height: 50px;
-	background-color: $default-gray;
+	background-color: $default-dark-blue;
     line-height: 50px;
     text-align: center;
 }

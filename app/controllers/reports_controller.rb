@@ -57,7 +57,7 @@ class ReportsController < ApplicationController
 
   private
   	def report_params
-  		params.require(:report).permit(:title, :body, :address, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report, :incident_date, :humanizer_answer, :humanizer_question_id)
+  		params.require(:report).permit(:title, :body, :address, :photo, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report, :incident_date, :humanizer_answer, :humanizer_question_id)
   	end
 
 end

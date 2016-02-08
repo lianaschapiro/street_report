@@ -19,16 +19,20 @@ $default-dark-blue: #6991AC;
 #wrapper {
 	clear: both;
 	width: 100%;
-    height: 600px;
+    height: 85vh;
     background-color: $default-light-gray;
 	margin: 60px auto 0px;
-    overflow: auto;
+    // overflow: auto;
 }
 
  h2 {
         text-align: center;
         color: $default-orange;
     }
+
+hr {
+    margin: 20px 0px;
+}
 
 #main-description {
 	float: left;
@@ -43,9 +47,12 @@ $default-dark-blue: #6991AC;
 #main-map {
 	float: left;
 	width: 50%;
-    height: 100%;
-	padding: 40px 0px 0px;
+    height: 85vh;
+	padding: 30px 0px 0px;
     text-align: center;
+    form {
+        margin-top: 10px;
+    }
 }
 
 #map {
@@ -56,23 +63,117 @@ $default-dark-blue: #6991AC;
 }
 
 form {
-    margin-top: 15px;
+    // margin-top: 15px;
 }
 
-@import "allReports";
+@import "recentReports";
 @import "newReportModal";
 
+.all-reports-wrapper {
+    padding: 30px 0px 0px;
+    width: 50%;
+    height: 93%;
+    margin: 0 auto;
+}
+
+.show-report {
+    padding: 10px;
+    margin: 30px auto 15px;
+    background-color: $default-light-blue;
+    width: 50%;
+    // height: 90%;
+}
+
+.edit_report {
+    display: inline-block;
+    width: 20%;
+}
+
+#comment-wrapper {
+    margin: 10px 10px;
+    // height: 48%;
+    // overflow: scroll;
+}
+
+.comment-individual {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: $default-light-gray;
+}
+
+.commenter {
+    font-size: 14px;
+}
+
+.comment-text {
+    color: $default-orange;
+    padding: 10px;
+}
+
+.comment-time-posted {
+    font-size: 14px;
+    display: inline-block;
+    width: 77%;
+}
+
+#comment_name {
+    margin: 0 0 0 9px;
+    width: 20%;
+    height: 35px;
+}
+
+#comment_body {
+    height: 35px;
+    width: 75.75%;
+}
+
+#comment_submit {
+    width: 98%;
+    margin-left: 5px;
+    height: 33px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.edit_comment {
+    display: inline-block;
+    width: 20%;
+}
+
+.unflagged {
+    width: 100%;
+}
 
 .flagged {
+    display: inline-block;
     background-color: $default-orange;
     color: white;
 }
 
+#login_wrapper {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 10%;
+    text-align: center;
+}
+.admin_flag_wrapper {
+    width: 100%;
+}
+
+.admin_flag_content  {
+    width: 70%;
+    margin: 6% auto;
+    position: relative;
+    // margin: 6% 0 0 0;
+}
+
 footer {
-	clear: both;
+	// clear: both;
     color: $default-light-gray;
 	height: 50px;
 	background-color: $default-dark-blue;
     line-height: 50px;
     text-align: center;
+    bottom: 0;
 }

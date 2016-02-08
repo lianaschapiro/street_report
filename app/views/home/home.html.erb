@@ -1,3 +1,4 @@
+<div id="wrapper">
 <div id="main-description">
 	<h2>Welcome to StreetReport</h2>
 		<p>
@@ -20,31 +21,30 @@
 <div id="main-map">
 	<div id="map">
 	</div>	
-
-		<form>
-			<label>Search by address:</label> 
-			<input id="address" type="textbox" placeholder="zip code or address">
-     		<input id="submit" type="button" value="Search">
-     	</form>
-     	<form>
-     		<label>To make a report for this address, click here --></label>
-     		<input id="add_report" type="button" value="Add Report" onclick="openReportModal()">
-     	</form>
+	<form>
+		<label>Search by address:</label> 
+		<input id="address" type="textbox" placeholder="zip code or address">
+ 		<input id="submit" type="button" value="Search">
+ 	</form>
+ 	<form>
+ 		<label>To make a report for this address, click here --></label>
+ 		<input id="add_report" type="button" value="Add Report" onclick="openReportModal()">
+ 	</form>
 </div>
 
 <div id="recent-reports-wrapper">
 	<h2>Recent Reports</h2>
 		<%= link_to "[see all]", reports_path, id: :see_all_reports %>
 		<div class="reports">
-		<% @reports.reverse.last(10).each do |t| %>
-			<div class="reports-individual">
-				<h3 class="report-title"> <%= t.title %> </h3>
-				<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
-				<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
-				<%= link_to "Report details", report_path(t), class: :report_details %>
-			</div>
-		<% end %>
-	</div>
+			<% @reports.reverse.last(10).each do |t| %>
+				<div class="reports-individual">
+					<h3 class="report-title"> <%= t.title %> </h3>
+					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
+					<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+					<%= link_to "Report details", report_path(t), class: :report_details %>
+				</div>
+			<% end %>
+		</div>
 </div>
 
 <div id="report_outer_modal">
@@ -53,7 +53,7 @@
 			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
 				<div class="col_container">
 					<div class="r_left_col">
-						<%= form_for @report do |f| %>
+						<%= form_for @report, :html => {:multipart => true} do |f| %>
 							<%= f.label :title %>
 							<%= f.text_field :title %>
 							<%= f.label :date_of_incident %>
@@ -64,12 +64,14 @@
 	  						<br>
 							<%= f.label :description %>
 							<%= f.text_field :body %>
+							<%= f.label :upload_a_picture %>
+							<%= f.file_field :photo %>
+							<%= f.label "Prove you're not a robot:" %>
 							<%= f.label :humanizer_answer, @report.humanizer_question %>
 							<%= f.text_field :humanizer_answer %>
 							<%= f.hidden_field :humanizer_question_id %>
 							<%= f.submit id: :submit, onclick: :closeReportModal %>
 					</div>
-					
 					<div class="r_right_col">
 							<%= f.label :catcalling %>
 							<%= f.check_box :catcall %>
@@ -93,7 +95,7 @@
 							<%= f.check_box :group %>
 							<%= f.label :rape %>
 							<%= f.check_box :rape %>
-							<% end %>
+						<% end %>
 					</div>
 				</div>
 	</div>
@@ -102,4 +104,5 @@
 	<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", report_path(r) %>' >
 	</div>
 <% end %>
+</div>
 	

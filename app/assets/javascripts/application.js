@@ -69,20 +69,6 @@ function initialize() {
     infowindow.open(map,marker);
     });
 
-  // Click on map to set marker
-  //   map.addListener('click', function(e) {
-  //     placeMarkerAndPanTo(e.latLng, map);
-  //   });
-
-  // function placeMarkerAndPanTo(latLng, map) {
-  //   var marker = new google.maps.Marker({
-  //     position: latLng,
-  //     map: map,
-      
-  //   });
-  //   map.panTo(latLng);
-  // }
-
   // This is a new map with a geocoded address
   var geocoder = new google.maps.Geocoder();
 

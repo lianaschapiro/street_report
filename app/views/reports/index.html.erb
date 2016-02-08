@@ -5,7 +5,7 @@
 			<div class="reports-individual">
 				<h3 class="report-title"><%= t.title %></h3>
 				<p class="report-body"><%= t.body %></p>
-				<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+				<p class="report-time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
 				<%= link_to "Report details", report_path(t), class: :report_details %>
 			</div>
 		<% end %>

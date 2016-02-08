@@ -9,12 +9,15 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
+      @report = @comment.report
       flash[:notice] = "Thanks for commenting"
-      redirect_to root_path
+      redirect_to report_path(@report)
     else
       flash[:notice] = "Unable to comment... try again"
-      redirect_to root_path
+      @report = Report.where(id: params[:comment][:report_id]).first
+      redirect_to report_path(@report)
     end 
+    
   end
 
   def show

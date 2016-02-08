@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
 
   def show
   	@report = Report.find(params[:id])
-      @comment = Comment.new
+    @comment = Comment.new
   end
 
   def admin_show

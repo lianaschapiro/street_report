@@ -14,11 +14,11 @@
     padding: 10px;
     margin: 15px auto;
     background-color: white;
-    width: 80%
+    width: 80%;
 }
 
 .report-title {
-    color: red;
+    color: $default-red;
 }
 
 .time-posted {
@@ -30,6 +30,6 @@
 }
 
 .flagged {
-    background-color: red;
+    background-color: $default-red;
     color: white;
 }

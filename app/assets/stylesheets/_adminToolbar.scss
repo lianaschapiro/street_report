@@ -1,5 +1,12 @@
 .admin_toolbar {
 	background-color: red;
+	margin-top: 60px;
+	position:fixed;
+	height: 25px;
+	width: 100%;
+	z-index: 10;
+	top: 0;
+
 	overflow: auto;
 	a {
 		text-decoration: none;
@@ -9,14 +16,17 @@
 		float: left;
 		li {
 			margin: 3px 0 0 10px;
-			font-size: 23px;
+			font-size: 16px;
 		}
 	}
 	ul.right {
 		float: right;
 		li {
 		display: inline-block;
-		margin: 10px 0px;
+		margin: 5px 0px;
+		}
+		a {
+		font-size: 16px;
 		}
 	}	
 }

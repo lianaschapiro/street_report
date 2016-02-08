@@ -3,6 +3,8 @@
 
 	<h3 class="report-title"><%= @report.title %></h3>
 	<p class="report-body"><%= @report.body %></p>
+	<%= image_tag @report.photo.url(:thumb) %>
+	<br>
 	<p class="report-time-posted">Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>
 
 	<% if @report.flag_report == false || @report.flag_report == nil %>
@@ -22,9 +24,26 @@
 					<hr>
 
 
-					<h4>Comments</h4>
+					<h4>Make a comment</h4>
+
+						<%= form_for @comment do |c| %>
+						<%= c.text_field :name, placeholder: "Your name (optional)" %>
+						<%= c.text_field :body, placeholder: :comment %>
+						<br>
+						<%=c.label "Prove you're not a robot:" %>
+						<%= c.label :humanizer_answer, @comment.humanizer_question %>
+						<%= c.text_field :humanizer_answer %>
+						<%= c.hidden_field :humanizer_question_id %>
+						<%= c.hidden_field :report_id, value: @report.id %>
+						<%= c.hidden_field :flag, value: false %>
+						<br>
+						<%= c.submit "Comment", id: :comment_submit %>
+					<% end %>
+
+
 						<div id="comment-wrapper">
-						<% @report.comments.each do |f| %>
+							<h4>Previous comments</h4>
+						<% @report.comments.reverse.each do |f| %>
 						<div class="comment-individual">
 							<p class="commenter">From: <%= f.name %></p>
 							<p class="comment-text"><%= f.body %></p>
@@ -41,18 +60,5 @@
 							</div>
 						<% end %>
 						</div>
-					<%= form_for @comment do |c| %>
-						<%= c.text_field :name, placeholder: "Your name (optional)" %>
-						<%= c.text_field :body, placeholder: :comment %>
-						<br>
-						<%=c.label "Prove you're not a robot:" %>
-						<%= c.label :humanizer_answer, @comment.humanizer_question %>
-						<%= c.text_field :humanizer_answer %>
-						<%= c.hidden_field :humanizer_question_id %>
-						<%= c.hidden_field :report_id, value: @report.id %>
-						<%= c.hidden_field :flag, value: false %>
-						<br>
-						<%= c.submit "Comment", id: :comment_submit %>
-					<% end %>
-				
 </div>
+

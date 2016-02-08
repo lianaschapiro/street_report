@@ -54,7 +54,7 @@
 			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
 				<div class="col_container">
 					<div class="r_left_col">
-						<%= form_for @report do |f| %>
+						<%= form_for @report, :html => {:multipart => true} do |f| %>
 							<%= f.label :title %>
 							<%= f.text_field :title %>
 							<%= f.label :date_of_incident %>
@@ -65,6 +65,9 @@
 	  						<br>
 							<%= f.label :description %>
 							<%= f.text_field :body %>
+							<%= f.label :upload_a_picture %>
+							<%= f.file_field :photo %>
+							<%= f.label "Prove you're not a robot:" %>
 							<%= f.label :humanizer_answer, @report.humanizer_question %>
 							<%= f.text_field :humanizer_answer %>
 							<%= f.hidden_field :humanizer_question_id %>

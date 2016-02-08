@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207162449) do
+ActiveRecord::Schema.define(version: 20160208204143) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20160207162449) do
     t.boolean  "stalking"
     t.boolean  "threat"
     t.boolean  "touching"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.boolean  "mean_comments"
     t.boolean  "exposure"
     t.boolean  "assault"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 20160207162449) do
     t.string   "address"
     t.boolean  "flag_report"
     t.datetime "incident_date"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

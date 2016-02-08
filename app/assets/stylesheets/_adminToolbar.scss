@@ -1,5 +1,6 @@
 .admin_toolbar {
-	background-color: red;
+	background-color: $default-orange;
+	color: $default-light-gray;
 	margin-top: 60px;
 	position:fixed;
 	height: 25px;
@@ -23,10 +24,11 @@
 		float: right;
 		li {
 		display: inline-block;
-		margin: 5px 0px;
+		margin: 5px 10px 0px 0px;
 		}
 		a {
 		font-size: 16px;
+		color: $default-light-gray;
 		}
 	}	
 }

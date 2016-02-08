@@ -1,10 +1,14 @@
-<h1>Log In</h1>
-<p>Administrators can sign in here</p>
-
-<%= form_tag log_in_path do %>
-	<%= label_tag(:email) %>
-	<%= text_field_tag(:email) %>
-	<%= label_tag(:password) %>
-	<%= password_field_tag(:password) %>
-	<%= submit_tag("Log In") %>
-<% end %>
+<div id="login_wrapper">
+	<h2>Log In</h2>
+		<br>
+		<p>Administrators can sign in here</p>
+			<br>
+			<%= form_tag log_in_path do %>
+				<%= label_tag(:email) %>
+				<%= text_field_tag(:email) %>
+				<%= label_tag(:password) %>
+				<%= password_field_tag(:password) %>
+				<br><br>
+				<%= submit_tag("Log In") %>
+			<% end %>
+</div>

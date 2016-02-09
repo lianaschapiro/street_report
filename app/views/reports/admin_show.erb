@@ -10,7 +10,7 @@
 					<p class="report-time-posted">Posted: <%= time_ago_in_words(r.created_at) %> ago</p>
 					<%= link_to "Delete Report", r, method: :delete %>
 					<% if r.flag_report == true %>
-						<%= form_for r, remote: true do |z| %>
+						<%= form_for r do |z| %>
 							<%= z.hidden_field :flag_report , value: false %>
 							<%= z.submit "Unflag", class: :flagged %>
 						<% end %>

@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require_tree .
 $(function(){
   // animates the closing of description and adds show button
@@ -34,13 +34,13 @@ $(function(){
   $("#show_description").on('click',
     function(){
       $("#main-description").animate({
-      width: '24%',
+      width: '23%',
     });
     $("#main-description > h2").delay(400).fadeIn();
     $("#main-description > p").delay(400).fadeIn();
     $('#main-map').animate({
       width: '50%',
-      marginLeft: '0%'
+      marginLeft: '1.8%'
     },400,function(){
           google.maps.event.trigger(map, 'resize');
      });

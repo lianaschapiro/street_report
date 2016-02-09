@@ -222,6 +222,7 @@ hr {
     // margin: 6% 0 0 0;
 }
 
+
 #contact-wrapper {
     text-align: center;
     width: 50%;
@@ -241,3 +242,28 @@ hr {
         font-size: 14px;
     }
 }
+
+@media all and (max-width: 720px){
+    #main-description {
+        float: none;
+        width: 90%;
+        height: auto;
+        margin: auto;
+        overflow: auto;
+        #description_hide, #show_description {
+            display: none;
+        }
+    }
+
+    #main-map {
+        float: none;
+        width: 90%;
+        height: auto;
+        margin: auto;
+        overflow: auto;
+    }
+
+
+
+}
+

@@ -3,7 +3,7 @@
     float: left;
     padding: 30px 0px 0px;
     width: 25%;
-    height: 63vh;
+    height: 80vh;
     #see_all_reports {
         margin-left: 42%;
     }
@@ -39,4 +39,15 @@
 
 .report-body {
     padding: 10px;
+}
+
+
+@media all and (max-width: 720px){
+    #recent-reports-wrapper {
+        float: none;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        overflow: auto;
+    }
 }

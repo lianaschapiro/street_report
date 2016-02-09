@@ -55,16 +55,14 @@
 				<div class="col_container">
 					<div class="r_left_col">
 						<%= form_for @report, :html => {:multipart => true} do |f| %>
-							<%= f.label :title %>
-							<%= f.text_field :title %>
+							<%= f.text_field :title, placeholder: :title %>
 							<%= f.label :date_of_incident %>
 							<%= f.date_select :incident_date %>
 							<%= f.hidden_field :Lat %>
 	  						<%= f.hidden_field :Lng %>
 	  						<%= f.hidden_field :flag_report, value: false %>
 	  						<br>
-							<%= f.label :description %>
-							<%= f.text_field :body %>
+							<%= f.text_field :body, placeholder: :description %>
 							<%= f.label :upload_a_picture %>
 							<%= f.file_field :photo %>
 							<%= f.label "Prove you're not a robot:" %>
@@ -74,28 +72,50 @@
 							<%= f.submit id: :submit, onclick: :closeReportModal %>
 					</div>
 					<div class="r_right_col">
-							<%= f.label :catcalling %>
-							<%= f.check_box :catcall %>
-							<%= f.label :stalking %>
+							<div class="modal_check">
+								<%= f.check_box :catcall %>
+								<%= f.label :catcalling %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :stalking %>
-							<%= f.label :threat %>
+							<%= f.label :stalking %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :threat %>
-							<%= f.label :unwanted_touching %>
+							<%= f.label :threat %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :touching %>
-							<%= f.label :inappropriate_comments %>
+							<%= f.label :unwanted_touching %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :mean_comments %>
-							<%= f.label :indecent_exposure %>
+							<%= f.label :inappropriate_comments %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :exposure %>
-							<%= f.label :assault %>
+							<%= f.label :indecent_exposure %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :assault %>
-							<%= f.label :taking_photos %>
+							<%= f.label :assault %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :takingphotos %>
-							<%= f.label :inappropriate_gestures %>
+							<%= f.label :taking_photos %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :gestures %>
-							<%= f.label :group_of_harassers %>
+							<%= f.label :inappropriate_gestures %>
+							</div>
+							<div class="modal_check">
 							<%= f.check_box :group %>
-							<%= f.label :rape %>
+							<%= f.label :group_of_harassers %>
+							</div>
+							<div class="modal_check last_m">
 							<%= f.check_box :rape %>
+							<%= f.label :rape %>
+							</div>
 						<% end %>
 					</div>
 				</div>

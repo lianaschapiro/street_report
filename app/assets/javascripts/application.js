@@ -15,12 +15,13 @@
 //= require turbolinks
 //= require_tree .
 $(function(){
+  // animates the closing of description and adds show button
   $("#description_hide").on('click', function(){
     $("#main-description").animate({
       width: '0',
     });
-    $("#main-description > h2").hide();
-    $("#main-description > p").hide();
+    $("#main-description > h2").fadeOut(100);
+    $("#main-description > p").fadeOut(100);
     $('#main-map').animate({
       width: '72%',
       marginLeft: '1.92%'
@@ -29,7 +30,7 @@ $(function(){
      });
     $("#show_description").show();
   });
-
+  // animates the description to show and hides the show button
   $("#show_description").on('click',
     function(){
       $("#main-description").animate({

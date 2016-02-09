@@ -1,9 +1,15 @@
+.all-reports-wrapper {
+    padding: 30px 0px 0px;
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
 
 #recent-reports-wrapper {
-    float: right;
+    float: left;
     padding: 30px 0px 0px;
     width: 25%;
-    height: 63vh;
+    height: 100%;
     #see_all_reports {
         margin-left: 42%;
     }
@@ -26,13 +32,7 @@
     color: $default-orange;
 }
 
-.report-time-posted {
-    font-size: 14px;
-    display: inline-block;
-    width: 77%;
-}
-
-.report_details {
+.time-posted, .report_details {
     font-size: 14px;
 }
 

@@ -106,7 +106,8 @@ function initialize() {
   var geocoder = new google.maps.Geocoder();
 
   // This function geocodes the address entered on submit in report modal
-  document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById('search').addEventListener('submit', function(e) {
+    e.preventDefault();
     var address = document.getElementById("address").value;
     geocodeAddress(geocoder, map, address);
   });

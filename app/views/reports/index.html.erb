@@ -5,6 +5,7 @@
 			<% @report.reverse.each do |t| %>
 				<div class="reports-individual">
 					<h3 class="report-title"><%= t.title %></h3>
+					<p>Date of Incident: <%= t.incident_date %></p>
 					<p class="report-body"><%= t.body %></p>
 					<%= image_tag t.photo.url(:thumb) %>
 					<br>

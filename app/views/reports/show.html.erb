@@ -2,6 +2,7 @@
 	<div class="show-report">
 		<h2>Report detail</h2>
 			<h3 class="report-title"><%= @report.title %></h3>
+				<p>Date of Incident: <%= @report.incident_date.strftime("%m/%d/%Y") %></p>
 				<p class="report-body"><%= @report.body %></p>
 				<%= image_tag @report.photo.url(:thumb) %>
 				<br>

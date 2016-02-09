@@ -8,7 +8,6 @@
 					<h3 class="report-title"><%= r.title %></h3>
 					<p class="report-body"><%= r.body %></p>
 					<p class="report-time-posted">Posted: <%= time_ago_in_words(r.created_at) %> ago</p>
-					<%= link_to "Edit Report", edit_report_path(r) %>
 					<%= link_to "Delete Report", r, method: :delete %>
 					<% if r.flag_report == true %>
 						<%= form_for r do |z| %>
@@ -20,7 +19,6 @@
 					<h4>Comments</h4>
 					<p class="commenter">From: <%= f.name %></p>
 					<p class="comment-text"><%= f.body %></p>
-					<%= link_to "Edit Comment", edit_comment_path(f) %>
 					<%= link_to "Delete Comment", f, method: :delete %>
 					<% if f.flag == true %>
 						<%= form_for f, remote: true do |f| %>

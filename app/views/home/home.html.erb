@@ -4,20 +4,13 @@
 	<p id="description_hide"><a href="#"><< Hide</a></p>
 	<h2>Welcome to StreetReport</h2>
 		<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		StreetReport is a place to anonymously share stories of street harassment. We aim to empower victims of street harassment by giving them a voice to discuss what has happened to them. 
 		</p>
 		<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Each marker on the map represents a specific incident. By clicking on the markers, supporters can comment and show their solidarity with the author of a report. You can search the map for a specific address or zip code to see all reported incidents in that area.
+		</p>
+		<p>
+		By reporting these incidents, we hope to show that street harassment is a real and persistent problem worldwide. No matter where you live or who you are, everyone deserves to live a life without fear. 
 		</p>
 </div>
 <div id="main-map">
@@ -40,6 +33,7 @@
 			<% @reports.reverse.first(10).each do |t| %>
 				<div class="reports-individual">
 					<h3 class="report-title"> <%= t.title %> </h3>
+					<p>Date of Incident: <%= t.incident_date %></p>
 					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
 					<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
 					<%= link_to "Report details", report_path(t), class: :report_details %>

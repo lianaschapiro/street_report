@@ -8,16 +8,9 @@
 	<%= image_tag @report.photo.url(:thumb) %>
 	<br>
 	<p class="report-time-posted">Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>
-
-	<% if @report.flag_report == false || @report.flag_report == nil %>
-						<%= form_for @report, remote: true do |z| %>
-							<%= z.hidden_field :flag_report , value: true %>
-							<%= z.submit "⚑ Flag as Inappropriate" %>
-						<% end %>
-					<% else %>
-						<br>
-						<button class="flagged">This report has been flagged for removal</button>
-					<% end %>
+				<div id="flag_report">
+					<%= render partial: 'flag_report', locals: {report: @report}, :formats => :html%>
+				</div>
 
 					<% if current_user %>
 						<%= link_to "Edit Report", edit_report_path(@report) %>

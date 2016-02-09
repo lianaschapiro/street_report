@@ -4,10 +4,10 @@
 	<h2>Report detail</h2>
 
 	<h3 class="report-title"><%= @report.title %></h3>
-	<p>Date of Incident: <%= @report.incident_date.strftime("%m/%d/%Y") %></p>
 	<p class="report-body"><%= @report.body %></p>
 	<%= image_tag @report.photo.url(:thumb) %>
 	<br>
+	<p class="report-time-posted">Date of Incident: <%= @report.incident_date.strftime("%m/%d/%Y") %></p>
 	<p class="report-time-posted">Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>
 				<div id="flag_report">
 					<%= render partial: 'flag_report', locals: {report: @report}, :formats => :html%>

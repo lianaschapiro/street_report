@@ -1,5 +1,4 @@
-
-<div id="wrapper">
+<div class="wrapper">
 	<div class="show-report">
 	<h2>Report detail</h2>
 
@@ -36,25 +35,25 @@
 					<% end %>
 
 
-						<div id="comment-wrapper">
-							<h4>Previous comments</h4>
+					<div id="comment-wrapper">
+						<h4>Previous comments</h4>
 						<% @report.comments.reverse.each do |f| %>
-						<div class="comment-individual">
-							<p class="commenter">From: <%= f.name %></p>
-							<p class="comment-text"><%= f.body %></p>
-							<p class="comment-time-posted">Posted: <%= time_ago_in_words(f.created_at) %> ago</p>
+							<div class="comment-individual">
+								<p class="commenter">From: <%= f.name %></p>
+								<p class="comment-text"><%= f.body %></p>
+								<p class="comment-time-posted">Posted: <%= time_ago_in_words(f.created_at) %> ago</p>
 
-							<% if f.flag == false || f.flag == nil %>
-								<%= form_for f, remote: true do |f| %>
-									<%= f.hidden_field :flag , value: true %>
-									<%= f.submit "⚑ Flag as Inappropriate", class: :unflagged %>
+								<% if f.flag == false || f.flag == nil %>
+									<%= form_for f, remote: true do |f| %>
+										<%= f.hidden_field :flag , value: true %>
+										<%= f.submit "⚑ Flag as Inappropriate", class: :unflagged %>
+									<% end %>
+								<% else %>
+									<button class="flagged">This comment has been flagged for removal</button>
 								<% end %>
-							<% else %>
-								<button class="flagged">This comment has been flagged for removal</button>
-							<% end %>
 							</div>
 						<% end %>
-						</div>
+					</div>
 	</div>
 </div>
 

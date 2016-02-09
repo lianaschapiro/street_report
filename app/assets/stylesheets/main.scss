@@ -23,6 +23,9 @@ $default-dark-blue: #6991AC;
 	margin: 60px auto 0;
     position: absolute;
     overflow: none;
+    #show_mobile {
+        display: none
+    }
 }
 
  h2 {
@@ -65,6 +68,24 @@ hr {
         margin: 0;
         text-align: right;
     }
+    #hide_mobile {
+        display: none;
+    }
+    a {
+        text-decoration: none;
+        color: $default-dark-blue;
+    }
+}
+
+#show_mobile {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px 0px 0px;
+    border: #ccc 1px solid;
+    border-radius: 0 0 3px 3px;
+    background-color: #ffcdbf;
+    padding-bottom: 2px;
     a {
         text-decoration: none;
         color: $default-dark-blue;
@@ -228,8 +249,11 @@ hr {
         height: auto;
         margin: auto;
         overflow: auto;
-        #description_hide, #show_description, #show_mobile {
+        #description_hide, #show_description {
             display: none;
+        }
+        #hide_mobile {
+            display: block;
         }
     }
 

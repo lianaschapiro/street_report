@@ -46,7 +46,6 @@ $(function(){
      });
     $("#show_description").hide();
     });
-
 });
 
 // Describes map we see when loaded

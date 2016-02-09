@@ -1,30 +1,26 @@
 <div class="wrapper">
 	<div class="show-report">
-		<h2>Report detail</h2>
-			<h3 class="report-title"><%= @report.title %></h3>
-				<p class="report-body"><%= @report.body %></p>
-				<%= image_tag @report.photo.url(:thumb) %>
-				<br>
-				<p class="report-time-posted">Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>
+	<h2>Report detail</h2>
 
-				<% if @report.flag_report == false || @report.flag_report == nil %>
-					<%= form_for @report, remote: true do |z| %>
-						<%= z.hidden_field :flag_report , value: true %>
-						<%= z.submit "⚑ Flag as Inappropriate" %>
+	<h3 class="report-title"><%= @report.title %></h3>
+	<p class="report-body"><%= @report.body %></p>
+	<%= image_tag @report.photo.url(:thumb) %>
+	<br>
+	<p class="report-time-posted">Posted: <%= time_ago_in_words(@report.created_at) %> ago</p>
+				<div id="flag_report">
+					<%= render partial: 'flag_report', locals: {report: @report}, :formats => :html%>
+				</div>
+
+					<% if current_user %>
+						<%= link_to "Edit Report", edit_report_path(@report) %>
+						<%= link_to "Delete Report", report_path(@report), method: :delete %>
 					<% end %>
-				<% else %>
-					<br>
-					<button class="flagged">This report has been flagged for removal</button>
-				<% end %>
+					<hr>
 
-				<% if current_user %>
-					<%= link_to "Edit Report", edit_report_path(@report) %>
-					<%= link_to "Delete Report", report_path(@report), method: :delete %>
-				<% end %>
-				<hr>
 
-				<h4>Make a comment</h4>
-					<%= form_for @comment do |c| %>
+					<h4>Make a comment</h4>
+
+						<%= form_for @comment do |c| %>
 						<%= c.text_field :name, placeholder: "Your name (optional)" %>
 						<%= c.text_field :body, placeholder: :comment %>
 						<br>

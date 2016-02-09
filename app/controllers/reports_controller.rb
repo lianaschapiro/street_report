@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
   def show
   	@report = Report.find(params[:id])
     @comment = Comment.new
+
   end
 
   def admin_show
@@ -35,13 +36,19 @@ class ReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     @report.update(report_params)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     if @report.save
+
       flash[:notice] = "Report edited"
       render root_path
     else
       flash[:notice] = "Unable to edit report"
       render 'edit'
     end
+
   end
 
   def destroy

@@ -1,0 +1,9 @@
+<% if @report.flag_report == false || @report.flag_report == nil %>
+	<%= form_for @report, remote: true do |z| %>
+		<%= z.hidden_field :flag_report , value: true %>
+		<%= z.submit "⚑ Flag as Inappropriate" %>
+	<% end %>
+<% else %>
+	<br>
+	<button class="flagged">This report has been flagged for removal</button>
+<% end %>

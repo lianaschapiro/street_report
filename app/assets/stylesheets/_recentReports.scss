@@ -26,10 +26,11 @@
     color: $default-orange;
 }
 
-.report-time-posted {
-    font-size: 14px;
+.time-posted {
+    font-size: 13px;
     display: inline-block;
-    width: 77%;
+    width: 66%;
+    color: $default-dark-blue;
 }
 
 .report_details {

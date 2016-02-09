@@ -9,11 +9,6 @@ nav {
 	img {
 		height: 55px;
 	}
-	a {
-		color: $default-light-gray;
-		text-decoration: none;
-		padding: 10px 5px;
-	}
 	ul.left {
 		float: left;
 		li {
@@ -23,13 +18,26 @@ nav {
 		}
 		a{
 		font-family: 'Oleo Script', cursive;
+		color: white;
+		text-decoration: none;
 		}
 	}
 	ul.right {
 		float: right;
 		li {
 		display: inline-block;
-		margin: 20px 10px 0px 0px;
+		margin: 20px 0px 0px 0px;
 		}
+		a {
+		color: $default-light-gray;
+		text-decoration: none;
+		padding: 25px 15px;
+		}
+		a:hover{
+		// text-decoration: underline;
+		transition: 0.2s ease-in;
+		background-color: $default-orange;
+
+	}
 	}	
 }

@@ -14,6 +14,39 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function(){
+  $("#description_hide").on('click', function(){
+    $("#main-description").animate({
+      width: '0',
+    });
+    $("#main-description > h2").hide();
+    $("#main-description > p").hide();
+    $('#main-map').animate({
+      width: '72%',
+      marginLeft: '1.92%'
+    },400,function(){
+          google.maps.event.trigger(map, 'resize');
+     });
+    $("#show_description").show();
+  });
+
+  $("#show_description").on('click',
+    function(){
+      $("#main-description").animate({
+      width: '24%',
+    });
+    $("#main-description > h2").delay(400).fadeIn();
+    $("#main-description > p").delay(400).fadeIn();
+    $('#main-map').animate({
+      width: '50%',
+      marginLeft: '0%'
+    },400,function(){
+          google.maps.event.trigger(map, 'resize');
+     });
+    $("#show_description").hide();
+    });
+
+});
 
 // Describes map we see when loaded
 function initialize() {
@@ -177,3 +210,6 @@ function openReportModal() {
 function closeReportModal() {
   $('#report_outer_modal').fadeOut(200);
 }
+
+
+

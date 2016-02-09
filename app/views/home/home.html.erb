@@ -1,5 +1,7 @@
 <div id="wrapper">
+<div id="show_description"><a href="#"> Show >></a></div>
 <div id="main-description">
+	<p id="description_hide"><a href="#"><< Hide</a></p>
 	<h2>Welcome to StreetReport</h2>
 		<p>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -22,13 +24,12 @@
 	<div id="map">
 	</div>	
 	<form>
-		<label>Search by address:</label> 
-		<input id="address" type="textbox" placeholder="zip code or address">
+		
+		<input id="address" type="textbox" placeholder="Search by zip code or address">
  		<input id="submit" type="button" value="Search">
  	</form>
  	<form>
- 		<label>To make a report for this address, click here --></label>
- 		<input id="add_report" type="button" value="Add Report" onclick="openReportModal()">
+ 		<input id="add_report" type="button" value="Add Report for this location" onclick="openReportModal()">
  	</form>
 </div>
 
@@ -46,7 +47,6 @@
 			<% end %>
 		</div>
 </div>
-
 
 <div id="report_outer_modal">
 	<div id="report-modal">

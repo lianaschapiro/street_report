@@ -123,7 +123,7 @@ hr {
 @import "newReportModal";
 
 .all-reports-wrapper {
-    padding: 30px 0px 0px;
+    padding: 50px 0px 0px;
     width: 50%;
     height: 93%;
     margin: 0 auto;
@@ -210,13 +210,34 @@ hr {
     padding-top: 10%;
     text-align: center;
 }
-.admin_flag_wrapper {
+
+#admin_flag_wrapper {
     width: 100%;
 }
 
-.admin_flag_content  {
+#admin_flag_content  {
     width: 70%;
     margin: 6% auto;
     position: relative;
     // margin: 6% 0 0 0;
+}
+
+#contact-wrapper {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    h2{
+        margin: 50px 0px 20px;
+    }
+    a{
+        text-decoration: none;
+    }
+    p {
+        padding: 10px;
+    }
+    textarea {
+        width: 300px;
+        height: 100px;
+        font-size: 14px;
+    }
 }

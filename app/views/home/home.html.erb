@@ -33,9 +33,9 @@
 			<% @reports.reverse.first(10).each do |t| %>
 				<div class="reports-individual">
 					<h3 class="report-title"> <%= t.title %> </h3>
-					<p>Date of Incident: <%= t.incident_date %></p>
 					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
-					<p class="time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+					<p class="report-time-posted">Date of Incident: <%= t.incident_date %></p>
+					<p class="report-time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
 					<%= link_to "Report details", report_path(t), class: :report_details %>
 				</div>
 			<% end %>

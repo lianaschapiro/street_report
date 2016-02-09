@@ -46,6 +46,19 @@ $(function(){
      });
     $("#show_description").hide();
     });
+
+    $('#hide_mobile').on('click',
+        function(){
+          $("#main-description").slideUp(500);
+          $("#show_mobile").delay(500).slideDown(200);
+        });
+    $("#show_mobile").on('click',
+      function(){
+        $("#show_mobile").slideUp(200);
+        $("#main-description").delay(200).slideDown(500);
+
+      });
+
 });
 
 // Describes map we see when loaded

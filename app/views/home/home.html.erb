@@ -12,15 +12,20 @@
 		<p>
 		By reporting these incidents, we hope to show that street harassment is a real and persistent problem worldwide. No matter where you live or who you are, everyone deserves to live a life without fear. 
 		</p>
+		<p>
+		Help us keep this a positive and safe space, with no hate speech of any kind. If you see derogatory or abusive comments, please flag them as inappropriate.
+		</p>
+		<p>
+		Please contact us for more information. 
+		</p>
 		<p id="hide_mobile"><a href="#">Hide</a></p>
 </div>
 <div id="main-map">
 	<div id="map">
 	</div>	
-	<form>
-		
+	<form id="search">
 		<input id="address" type="textbox" placeholder="Search by zip code or address">
- 		<input id="submit" type="button" value="Search">
+ 		<input id="submit" type="submit" value="Search">
  	</form>
  	<form>
  		<input id="add_report" type="button" value="Add Report for this location" onclick="openReportModal()">
@@ -35,7 +40,7 @@
 				<div class="reports-individual">
 					<h3 class="report-title"> <%= t.title %> </h3>
 					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
-					<p class="report-time-posted">Date of Incident: <%= t.incident_date %></p>
+					<p class="report-time-posted">Date of Incident: <%= t.incident_date.strftime("%d %b %Y") %></p>
 					<p class="report-time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
 					<%= link_to "Report details", report_path(t), class: :report_details %>
 				</div>

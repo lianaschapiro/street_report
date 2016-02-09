@@ -4,4 +4,7 @@ class HomeController < ApplicationController
   	@reports = Report.all
  
   end
+
+  def contact
+  end
 end

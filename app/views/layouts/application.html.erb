@@ -3,11 +3,11 @@
 <head>
   <title>StreetReport</title>
  	
- 	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
  	
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 <link href='https://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -29,14 +29,11 @@
 		<ul class="right">
 			<li><%= link_to "MAP", root_path %></li>
 			<li><%= link_to "ALL REPORTS", reports_path %></li>
-			<!-- <li><a href="#">GET ALERTS</a></li> -->
 			<li><a href="#">CONTACT</a></li>
 		</ul>
 	</nav>
 
-	<!-- <div id="wrapper"> -->
 		<%= yield %>
-	<!-- </div> -->
 
 	<script type="text/javascript">
 		initialize();

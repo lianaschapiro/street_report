@@ -60,7 +60,7 @@ $(function(){
       });
     $("#mobile_menu").on('click',
       function(){
-        $(".right").toggle();
+        $(".right").fadeToggle('fast');
       });
 
 });

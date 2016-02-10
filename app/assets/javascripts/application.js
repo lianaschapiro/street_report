@@ -47,6 +47,7 @@ $(function(){
     $("#show_description").hide();
     });
 
+// ########### MOBILE-READY MENU #############
     $('#hide_mobile').on('click',
         function(){
           $("#main-description").slideUp(500);
@@ -62,6 +63,10 @@ $(function(){
       function(){
         $(".right").fadeToggle('fast');
       });
+
+
+    // ####### FLASH MESSAGES ###########
+    $("#flashy").delay(1000).fadeOut(1000);
 
 });
 
@@ -227,3 +232,5 @@ function openReportModal() {
 function closeReportModal() {
   $('#report_outer_modal').fadeOut(200);
 }
+
+

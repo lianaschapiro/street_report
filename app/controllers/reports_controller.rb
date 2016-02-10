@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   def index
-  	@report = Report.all
+  	@reports = Report.all
   end
 
   def show

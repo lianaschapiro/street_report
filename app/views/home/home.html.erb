@@ -39,7 +39,7 @@
 		<h2>Recent Reports</h2>
 			<%= link_to "[see all]", reports_path, id: :see_all_reports %>
 			<div class="reports">
-				<% @reports.reverse.first(10).each do |t| %>
+				<% @reports.first(10).each do |t| %>
 					<div class="reports-individual">
 						<h3 class="report-title"> <%= t.title %> </h3>
 						<p class="report-body"> <%= t.body.truncate_words(5) %> </p>

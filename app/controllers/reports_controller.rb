@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
       end
     else
       flash[:notice] = "Unable to edit report"
-      render 'edit'
+      redirect_to admin_show_path
     end
 
   end
@@ -67,7 +67,7 @@ class ReportsController < ApplicationController
 
   private
   	def report_params
-  		params.require(:report).permit(:title, :body, :address, :photo, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report, :incident_date, :humanizer_answer, :humanizer_question_id)
+  		params.require(:report).permit(:title, :body, :address, :photo, :Lat, :Lng, :catcall, :stalking, :threat, :touching, :mean_comments, :exposure, :assault, :rape, :group, :gestures, :takingphotos, :flag_report, :incident_date, :humanizer_answer, :humanizer_question_id)
   	end
 
 end

@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
   		flash[:notice] = "Incident recorded"
   		redirect_to root_path
   	else
-  		flash[:notice] = "Unable to record incident"
+  		flash[:notice] = "#{@report.errors.full_messages.first}"
   		redirect_to root_path
   	end
   end

@@ -23,7 +23,7 @@ $(function(){
     $("#main-description > h2").fadeOut(100);
     $("#main-description > p").fadeOut(100);
     $('#main-map').animate({
-      width: '72%',
+      width: '72.5%',
       marginLeft: '1.92%'
     },400,function(){
           google.maps.event.trigger(map, 'resize');
@@ -57,6 +57,10 @@ $(function(){
         $("#show_mobile").slideUp(200);
         $("#main-description").delay(200).slideDown(500);
 
+      });
+    $("#mobile_menu").on('click',
+      function(){
+        $(".right").toggle();
       });
 
 });

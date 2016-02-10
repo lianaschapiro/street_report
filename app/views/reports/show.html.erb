@@ -55,23 +55,25 @@
 					<hr>
 
 
-					<h4>Make a comment</h4>
+					<h4 id="make_comment_h4">Make a comment</h4>
 
 						<%= form_for @comment do |c| %>
 						<%= c.text_field :name, placeholder: "Your name (optional)" %>
 						<%= c.text_field :body, placeholder: :comment %>
 						<br>
-						<%=c.label "Prove you're not a robot:" %>
-						<%= c.label :humanizer_answer, @comment.humanizer_question %>
-						<%= c.text_field :humanizer_answer %>
-						<%= c.hidden_field :humanizer_question_id %>
+						<div id="humanizer_div">
+							<%=c.label "Prove you're not a robot:" %>
+							<%= c.label :humanizer_answer, @comment.humanizer_question %>
+							<%= c.text_field :humanizer_answer %>
+							<%= c.hidden_field :humanizer_question_id %>
+						</div>
 						<%= c.hidden_field :report_id, value: @report.id %>
 						<%= c.hidden_field :flag, value: false %>
 						<br>
 						<%= c.submit "Comment", id: :comment_submit %>
 					<% end %>
 
-
+					<hr>
 					<div id="comment-wrapper">
 						<h4>Previous comments</h4>
 						<% @report.comments.reverse.each do |f| %>

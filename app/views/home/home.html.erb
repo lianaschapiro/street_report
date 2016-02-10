@@ -66,8 +66,8 @@
 		  						<%= f.hidden_field :flag_report, value: false %>
 		  						<br>
 								<%= f.text_field :body, placeholder: :description %>
-								<%= f.label :upload_a_picture %>
-								<%= f.file_field :photo %>
+								<%#= f.label :upload_a_picture %>
+								<%#= f.file_field :photo %>
 								<%= f.label "Prove you're not a robot:" %>
 								<%= f.label :humanizer_answer, @report.humanizer_question %>
 								<%= f.text_field :humanizer_answer %>

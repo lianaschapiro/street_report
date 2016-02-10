@@ -1,130 +1,134 @@
 <div class="wrapper">
-<div id="show_description"><a href="#"> Show >></a></div>
-<div id="show_mobile"><a href="#"> Show </a></div>
-<div id="main-description">
-	<p id="description_hide"><a href="#"><< Hide</a></p>
-	<h2>Welcome to StreetReport</h2>
-		<p>
-		StreetReport is a place to anonymously share stories of street harassment. We aim to empower victims of street harassment by giving them a voice to discuss what has happened to them. 
-		</p>
-		<p>
-		Each marker on the map represents a specific incident. By clicking on the markers, supporters can comment and show their solidarity with the author of a report. You can search the map for a specific address or zip code to see all reported incidents in that area.
-		</p>
-		<p>
-		By reporting these incidents, we hope to show that street harassment is a real and persistent problem worldwide. No matter where you live or who you are, everyone deserves to live a life without fear. 
-		</p>
-		<p>
-		Help us keep this a positive and safe space, with no hate speech of any kind. If you see derogatory or abusive comments, please flag them as inappropriate.
-		</p>
-		<p>
-		Please <%= link_to "contact us", contact_path %> for more information. 
-		</p>
-		<p id="hide_mobile"><a href="#">Hide</a></p>
-</div>
-<div id="main-map">
-	<div id="map">
-	</div>	
-	<form id="search">
-		<input id="address" type="textbox" placeholder="Search by zip code or address">
- 		<input id="submit" type="submit" value="Search">
- 	</form>
- 	<form>
- 		<input id="add_report" type="button" value="Add Report for this location" onclick="openReportModal()">
- 	</form>
-</div>
+	<div id="show_description"><a href="#"> Show >></a>
+	</div>
+	<div id="show_mobile"><a href="#"> Show </a>
+	</div>
+	<div id="main-description">
+		<p id="description_hide"><a href="#"><< Hide</a></p>
+		<h2>Welcome to StreetReport</h2>
+			<p>
+			StreetReport is a place to anonymously share stories of street harassment. We aim to empower victims of street harassment by giving them a voice to discuss what has happened to them. 
+			</p>
+			<p>
+			Each marker on the map represents a specific incident. By clicking on the markers, supporters can comment and show their solidarity with the author of a report. You can search the map for a specific address or zip code to see all reported incidents in that area.
+			</p>
+			<p>
+			By reporting these incidents, we hope to show that street harassment is a real and persistent problem worldwide. No matter where you live or who you are, everyone deserves to live a life without fear. 
+			</p>
+			<p>
+			Help us keep this a positive and safe space, with no hate speech of any kind. If you see derogatory or abusive comments, please flag them as inappropriate.
+			</p>
+			<p>
+			Please <%= link_to "contact us", contact_path %> for more information. 
+			</p>
+			<p id="hide_mobile"><a href="#">Hide</a></p>
+	</div>
+	<div id="main-map">
+		<div id="map">
+		</div>	
+		<form id="search">
+			<input id="address" type="textbox" placeholder="Search by zip code or address">
+	 		<input id="submit" type="submit" value="Search">
+	 	</form>
+	 	<form>
+	 		<input id="add_report" type="button" value="Add Report for this location" onclick="openReportModal()">
+	 	</form>
+	</div>
 
-<div id="recent-reports-wrapper">
-	<h2>Recent Reports</h2>
-		<%= link_to "[see all]", reports_path, id: :see_all_reports %>
-		<div class="reports">
-			<% @reports.reverse.first(10).each do |t| %>
-				<div class="reports-individual">
-					<h3 class="report-title"> <%= t.title %> </h3>
-					<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
-					<p class="report-time-posted">Date of Incident: <%= t.incident_date.strftime("%d %b %Y") %></p>
-					<p class="report-time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
-					<%= link_to "Report details", report_path(t), class: :report_details %>
-				</div>
-			<% end %>
+	<div id="recent-reports-wrapper">
+		<h2>Recent Reports</h2>
+			<%= link_to "[see all]", reports_path, id: :see_all_reports %>
+			<div class="reports">
+				<% @reports.reverse.first(10).each do |t| %>
+					<div class="reports-individual">
+						<h3 class="report-title"> <%= t.title %> </h3>
+						<p class="report-body"> <%= t.body.truncate_words(5) %> </p>
+						<p class="report-time-posted">Date of Incident: <%= t.incident_date.strftime("%d %b %Y") %></p>
+						<p class="report-time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>
+						<%= link_to "Report details", report_path(t), class: :report_details %>
+					</div>
+				<% end %>
+			</div>
+	</div>
+
+	<div id="report_outer_modal">
+		<div id="report-modal">
+			<h1 class="report_title">Make a Report</h1>
+				<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
+					<div class="col_container">
+						<div class="r_left_col">
+							<%= form_for @report, :html => {:multipart => true} do |f| %>
+								<%= f.text_field :title, placeholder: :title %>
+								<%= f.label :date_of_incident %>
+								<%= f.date_select :incident_date %>
+								<%= f.hidden_field :Lat %>
+		  						<%= f.hidden_field :Lng %>
+		  						<%= f.hidden_field :flag_report, value: false %>
+		  						<br>
+								<%= f.text_field :body, placeholder: :description %>
+								<%= f.label :upload_a_picture %>
+								<%= f.file_field :photo %>
+								<%= f.label "Prove you're not a robot:" %>
+								<%= f.label :humanizer_answer, @report.humanizer_question %>
+								<%= f.text_field :humanizer_answer %>
+								<%= f.hidden_field :humanizer_question_id %>
+								<%= f.submit id: :submit, onclick: :closeReportModal %>
+						</div>
+						<div class="r_right_col">
+								Check all that apply:
+									<br><br>
+								<div class="modal_check">
+									<%= f.check_box :catcall %>
+									<%= f.label :catcalling %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :stalking %>
+								<%= f.label :stalking %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :threat %>
+								<%= f.label :threats %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :touching %>
+								<%= f.label :unwanted_touching %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :mean_comments %>
+								<%= f.label :inappropriate_comments %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :exposure %>
+								<%= f.label :indecent_exposure %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :assault %>
+								<%= f.label :assault %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :takingphotos %>
+								<%= f.label :taking_photos %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :gestures %>
+								<%= f.label :inappropriate_gestures %>
+								</div>
+								<div class="modal_check">
+								<%= f.check_box :group %>
+								<%= f.label :group_of_harassers %>
+								</div>
+								<div class="modal_check last_m">
+								<%= f.check_box :rape %>
+								<%= f.label :rape %>
+								</div>
+							<% end %>
+						</div>
+					</div>
 		</div>
-</div>
-
-<div id="report_outer_modal">
-	<div id="report-modal">
-		<h1 class="report_title">Make a Report</h1>
-			<a href="#"><p class="close_report_modal" onclick="closeReportModal()">X</p></a>
-				<div class="col_container">
-					<div class="r_left_col">
-						<%= form_for @report, :html => {:multipart => true} do |f| %>
-							<%= f.text_field :title, placeholder: :title %>
-							<%= f.label :date_of_incident %>
-							<%= f.date_select :incident_date %>
-							<%= f.hidden_field :Lat %>
-	  						<%= f.hidden_field :Lng %>
-	  						<%= f.hidden_field :flag_report, value: false %>
-	  						<br>
-							<%= f.text_field :body, placeholder: :description %>
-							<%= f.label :upload_a_picture %>
-							<%= f.file_field :photo %>
-							<%= f.label "Prove you're not a robot:" %>
-							<%= f.label :humanizer_answer, @report.humanizer_question %>
-							<%= f.text_field :humanizer_answer %>
-							<%= f.hidden_field :humanizer_question_id %>
-							<%= f.submit id: :submit, onclick: :closeReportModal %>
-					</div>
-					<div class="r_right_col">
-							<div class="modal_check">
-								<%= f.check_box :catcall %>
-								<%= f.label :catcalling %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :stalking %>
-							<%= f.label :stalking %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :threat %>
-							<%= f.label :threat %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :touching %>
-							<%= f.label :unwanted_touching %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :mean_comments %>
-							<%= f.label :inappropriate_comments %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :exposure %>
-							<%= f.label :indecent_exposure %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :assault %>
-							<%= f.label :assault %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :takingphotos %>
-							<%= f.label :taking_photos %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :gestures %>
-							<%= f.label :inappropriate_gestures %>
-							</div>
-							<div class="modal_check">
-							<%= f.check_box :group %>
-							<%= f.label :group_of_harassers %>
-							</div>
-							<div class="modal_check last_m">
-							<%= f.check_box :rape %>
-							<%= f.label :rape %>
-							</div>
-						<% end %>
-					</div>
-				</div>
 	</div>
-</div>
-<% @reports.each do |r| %>
-	<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", report_path(r) %>' >
-	</div>
-<% end %>
+	<% @reports.each do |r| %>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.Lat %>, "lng": <%= r.Lng %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", report_path(r) %>' >
+		</div>
+	<% end %>
 </div>
 	

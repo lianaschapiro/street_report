@@ -7,6 +7,42 @@
 					<h3 class="report-title"><%= t.title %></h3>
 					<p class="report-time-posted">Date of Incident: <%= t.incident_date.strftime("%d %b %Y") %></p>
 					<p class="report-body"><%= t.body %></p>
+					<% if t.catcall == true %>
+						<li>catcalling</li>
+					<% end %>
+					<% if t.stalking == true %>
+						<li>stalking</li>
+					<% end %>
+					<% if t.threat == true %>
+						<li>threats</li>
+					<% end %>
+					<% if t.touching == true %>
+						<li>unwanted touching</li>
+					<% end %>
+					<% if t.mean_comments == true %>
+						<li>inappropriate comments</li>
+					<% end %>
+					<% if t.exposure == true %>
+						<li>indecent exposure</li>
+					<% end %>
+					<% if t.assault == true %>
+						<li>assault</li>
+					<% end %>
+					<% if t.takingphotos == true %>
+						<li>taking photos</li>
+					<% end %>
+					<% if t.gestures == true %>
+						<li>inappropriate gestures</li>
+					<% end %>
+					<% if t.group == true %>
+						<li>group of harassers</li>
+					<% end %>
+					<% if t.rape == true %>
+						<li>rape</li>
+					<% end %>
+
+
+
 					<%= image_tag t.photo.url(:thumb) %>
 					<br>
 					<p class="report-time-posted">Posted: <%= time_ago_in_words(t.created_at) %> ago</p>

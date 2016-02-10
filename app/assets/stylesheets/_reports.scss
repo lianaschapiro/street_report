@@ -26,16 +26,36 @@
     margin: 0px auto 15px;
     background-color: $default-light-blue;
     width: 80%;
+    li {
+        font-size: 14px;
+    }
 }
 
 .report-title {
     color: $default-orange;
 }
 
-.time-posted, .report_details {
+.report_details {
     font-size: 14px;
+}
+
+.report-time-posted {
+    font-size: 14px;
+    display: inline-block;
+    width: 66%;
+    color: $default-dark-blue;
 }
 
 .report-body {
     padding: 10px;
+}
+
+@media all and (max-width: 720px){
+    #recent-reports-wrapper {
+        float: none;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        overflow: auto;
+    }
 }

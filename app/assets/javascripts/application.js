@@ -214,7 +214,6 @@ function geocodeAddress(geocoder, resultsMap, address) {
   });
 }
 
-
 // ######### REPORT MODAL ############
 
 function openReportModal() {
@@ -224,6 +223,3 @@ function openReportModal() {
 function closeReportModal() {
   $('#report_outer_modal').fadeOut(200);
 }
-
-
-

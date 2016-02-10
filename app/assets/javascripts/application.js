@@ -162,7 +162,6 @@ function initialize() {
     var thung = JSON.parse(arr[j]);
     var rTitle = arrTitle[j];
     var rBody = arrBody[j];
-    var rbody = rBody.split(" ").slice(0,5).join(" ");
     var rDetails = arrDetails[j];
 
     // console.log(thung)
@@ -223,7 +222,7 @@ function geocodeAddress(geocoder, resultsMap, address) {
   });
 }
 
-// ######### REPORT MODAL ############
+// ######### NEW REPORT MODAL ############
 
 function openReportModal() {
   $('#report_outer_modal').fadeIn(200);

@@ -138,8 +138,9 @@ hr {
     color: white;
 }
 
-@import "recentReports";
+// @import "recentReports";
 @import "newReportModal";
+@import "_reports";
 
 .all-reports-wrapper {
     padding: 50px 0px 0px;
@@ -153,7 +154,9 @@ hr {
     margin: 30px auto 15px;
     background-color: $default-light-blue;
     width: 50%;
-    // height: 90%;
+    li {
+        font-size: 14px;
+    }
 }
 
 .edit_report {
@@ -163,8 +166,6 @@ hr {
 
 #comment-wrapper {
     margin: 10px 10px;
-    // height: 48%;
-    // overflow: scroll;
 }
 
 .comment-individual {
@@ -238,7 +239,6 @@ hr {
     width: 70%;
     margin: 6% auto;
     position: relative;
-    // margin: 6% 0 0 0;
 }
 
 
@@ -288,8 +288,4 @@ hr {
         margin: auto;
         overflow: auto;
     }
-
-
-
 }
-

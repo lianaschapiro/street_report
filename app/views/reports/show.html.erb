@@ -5,6 +5,40 @@
 
 	<h3 class="report-title"><%= @report.title %></h3>
 	<p class="report-body"><%= @report.body %></p>
+	<% if @report.catcall == true %>
+		<li>catcalling</li>
+	<% end %>
+	<% if @report.stalking == true %>
+		<li>stalking</li>
+	<% end %>
+	<% if @report.threat == true %>
+		<li>threats</li>
+	<% end %>
+	<% if @report.touching == true %>
+		<li>unwanted touching</li>
+	<% end %>
+	<% if @report.mean_comments == true %>
+		<li>inappropriate comments</li>
+	<% end %>
+	<% if @report.exposure == true %>
+		<li>indecent exposure</li>
+	<% end %>
+	<% if @report.assault == true %>
+		<li>assault</li>
+	<% end %>
+	<% if @report.takingphotos == true %>
+		<li>taking photos</li>
+	<% end %>
+	<% if @report.gestures == true %>
+		<li>inappropriate gestures</li>
+	<% end %>
+	<% if @report.group == true %>
+		<li>group of harassers</li>
+	<% end %>
+	<% if @report.rape == true %>
+		<li>rape</li>
+	<% end %>
+
 	<%= image_tag @report.photo.url(:thumb) %>
 	<br>
 	<p class="report-time-posted">Date of Incident: <%= @report.incident_date.strftime("%d %b %Y") %></p>

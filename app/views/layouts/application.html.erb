@@ -11,6 +11,11 @@
 <link href='https://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	<div id="flashy">
+		<% if flash[:notice] %>
+			<p><%= flash[:notice] %></p>
+		<% end %>
+	</div>
 	<% if current_user %>
 		<div class="admin_toolbar">
 			<ul class="left">

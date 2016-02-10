@@ -33,6 +33,20 @@ $default-dark-blue: #6991AC;
 hr {
     margin: 20px 0px;
 }
+#flashy {
+    position: fixed;
+    width: 50%;
+    height: 30px;
+    margin-top: 60px;
+    margin-left: 25%;
+    z-index: 8;
+    p {
+        text-align: center;
+        background-color: yellow;
+        width: 30%;
+        margin: auto;
+    }
+}
 
 #show_description {
     position: fixed;

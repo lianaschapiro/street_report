@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Thanks for commenting"
       redirect_to report_path(@report)
     else
-      flash[:notice] = "Unable to comment... try again"
+      flash[:notice] = "#{@comment.errors.full_messages.first}"
       @report = Report.where(id: params[:comment][:report_id]).first
       redirect_to report_path(@report)
     end 

@@ -1,7 +1,7 @@
 en:
   humanizer:
     validation:
-      error: You're not a human
+      error: "- please prove you're not a robot"
     questions:
       - question: Two plus two?
         answers: ["4", "four"]

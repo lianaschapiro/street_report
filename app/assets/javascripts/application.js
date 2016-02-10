@@ -167,49 +167,46 @@ function initialize() {
       position: thung,
       map: map
     });
-     var infoWindow = new google.maps.InfoWindow({
-          content: "<b>" + rTitle + "</b><br><br>" + rBody + "<br>" + rDetails
-     });
-    addInfoWindow(marks,rTitle,rBody,rDetails)
 
-    // function anchors infowindow to each specific marker
+    // anchors infowindow to corresponding / specific marker
     function addInfoWindow(marker, title, body, details) {
       var infoWindow = new google.maps.InfoWindow({
           content: "<b>" + title + "</b><br><br>" + body + details
       });
+      //
       google.maps.event.addListener(marker, 'click', function () {
           infoWindow.open(map, this);
           map.setZoom(15);
           map.setCenter(marker.getPosition());
       });
     }
+    // Puts report title + body + details link in infowindow
+    addInfoWindow(marks,rTitle,rBody,rDetails)
+    // centers marker and infowindow when marker is clicked
     map.setCenter(thung);
   }
 }
 
 // This takes an address and geocodes it. Code is from Google Maps Javascript API
 function geocodeAddress(geocoder, resultsMap, address) {
-  // var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
-      console.log(results[0].geometry.location)
-      var marker = new google.maps.Marker({
+       var marker = new google.maps.Marker({
         map: resultsMap,
         position: results[0].geometry.location
       });
-      /// coordinates
+      // sets marker position to the geocoded latitude/longitude
       var report_lng = marker.position.lng();
       var report_lat = marker.position.lat();
-      // setting hidden form_for fields to the coordinates
+      // sets hidden form_for fields in the "new report modal" to the latitude/longitude coordinates
       document.getElementById("report_Lng").setAttribute("value", report_lng); 
       document.getElementById("report_Lat").setAttribute("value", report_lat);
+      // changes address search button to say "Address Found!"
       document.getElementById("submit").setAttribute("value", "Address Found!");
+      // changes address search button text back to "Search"
       setTimeout(function(){ 
         document.getElementById("submit").setAttribute("value", "Search"); }, 3000);
-
-      // console.log(marker.position.lat())
-      // console.log(marker.position.lng())
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

@@ -38,7 +38,7 @@ class ReportsController < ApplicationController
     @report.update(report_params)
     if @report.save
       if @report.flag_report == true
-        flash[:notice] = "Report edited"
+        flash[:notice] = "Report Flagged"
         # render root_path
         respond_to do |format|
           format.html

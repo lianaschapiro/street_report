@@ -15,7 +15,7 @@
 
 //= require_tree .
 $(function(){
-  // animates the closing of description and adds show button
+  // closes main description
   $("#description_hide").on('click', function(){
     $("#main-description").animate({
       width: '0',
@@ -25,12 +25,15 @@ $(function(){
     $('#main-map').animate({
       width: '72.5%',
       marginLeft: '1.92%'
+    //expands map when main description is hidden
     },400,function(){
           google.maps.event.trigger(map, 'resize');
      });
+    //adds "show" button when main desription is hidden
     $("#show_description").show();
   });
-  // animates the description to show and hides the show button
+
+  // re-opens / expands main description  
   $("#show_description").on('click',
     function(){
       $("#main-description").animate({
@@ -41,13 +44,16 @@ $(function(){
     $('#main-map').animate({
       width: '50%',
       marginLeft: '1.8%'
+    //shrinks map when main description is re-opened / expanded
     },400,function(){
           google.maps.event.trigger(map, 'resize');
      });
+    // hides "show" button when main description is re-opened / expanded
     $("#show_description").hide();
     });
 
-// ########### MOBILE-READY MENU #############
+    // ########### MOBILE-READY MENU #############
+
     $('#hide_mobile').on('click',
         function(){
           $("#main-description").slideUp(500);
@@ -64,8 +70,9 @@ $(function(){
         $(".right").fadeToggle('fast');
       });
 
+    // ############################################
 
-    // ####### FLASH MESSAGES ###########
+    // Fades out flash messages
     $("#flashy").delay(1000).fadeOut(1000);
 
 });
@@ -82,8 +89,7 @@ function initialize() {
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
-  // defines new info window for user defined area
-  // var infoWindow = new google.maps.InfoWindow({map: map});
+
   // HTML5 geolocation. finds user location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -100,24 +106,12 @@ function initialize() {
     // position:myCenter,
   });
 
-  // Places the marker on the map
-  // marker.setMap(map);
 
-  // Makes the marker bounce
-  // marker.setAnimation(google.maps.Animation.BOUNCE);
-  // setTimeout(function(){ marker.setAnimation(null); }, 1000);
-
-
-  // Zoom to 17 on marker click
+  // Zooms in on marker click
   google.maps.event.addListener(marker,'click',function() {
     map.setZoom(15);
     map.setCenter(marker.getPosition());
   });
-
-  // This is the infowindow
-  var infowindow = new google.maps.InfoWindow({
-    content:"Hello World!"
-    });
 
   // Opens infowindow on marker click
   google.maps.event.addListener(marker, 'click', function() {
@@ -136,37 +130,33 @@ function initialize() {
 
   //grabs all of the things with the class load_all_markers
   var things = document.getElementsByClassName('load_all_markers');
-    // console.log(things)
+
   // gets the length of load_all_markers
   var length = document.getElementsByClassName('load_all_markers').length
-    // console.log(length)
+
     
   var arr = [];
   var arrTitle = []
   var arrBody = []
   var arrDetails = []
-  // iterates through things array and adds it to empty arr (dataset.thang refers to html attributte data-thang)
+  // iterates through var things (array) and adds stuff to empty arrays (dataset.thang refers to html attributte data-thang)
   for (var i = 0; i < length; i++){
     arr.push(things[i].dataset.thang);
     arrTitle.push(things[i].dataset.title);
     arrBody.push(things[i].dataset.body);
     arrDetails.push(things[i].dataset.details);
   }
-  // arr is now an array of objects in string form
-  // console.log(arr)
-  // console.log(arrTitle)
+
+  // var arr is now an array of objects in string form
 
   // iteration of arr and returning it's object form using JSON.parse saved as variable "thung"
   for (var j = 0; j < length; j++){
-    // console.log(j)
+
     var thung = JSON.parse(arr[j]);
     var rTitle = arrTitle[j];
     var rBody = arrBody[j];
     var rDetails = arrDetails[j];
 
-    // console.log(thung)
-    console.log(rTitle)
-    console.log(rBody)
 
     // make new marker with the object thung which contains latitude and longitude
     var marks = new google.maps.Marker({

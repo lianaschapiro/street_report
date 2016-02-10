@@ -9,8 +9,8 @@
     #report-modal {
     	width: 70%;
     	height: 85%;
-    	background-color:$default-light-gray;
-    	box-shadow: 0 0 10px #cecece;
+    	background-color:$default-light-blue;
+    	box-shadow: 0 0 15px #9e9e9e;
     	border: #cecece solid 1px;
     	margin: auto;
     	margin-top: 3%;
@@ -48,14 +48,21 @@
     	width: 100%;
     	margin: 10px 0 5px 0;
     }
+
+    #submit {
+        background-color: $default-orange;
+        color: white;
+    }
+
     a {
     	color: black;
 	}
 	.report_title {
     	display: inline-block;
-    	width: 83%;
-    	margin: 2% 0 3% 0;
-    	padding-left: 10%
+        width: 58%;
+        margin: 2% 0 3% 26%;
+        padding-left: 10%;
+        color: $default-dark-blue;
 	}
     .close_report_modal {
     	display: inline-block;
@@ -65,10 +72,14 @@
     	height: 40px;
         font-size: 20px;
         text-align: center;
+        border-radius: 5px;
+        border: 1px solid #ccc;
     }
     #report_body {
     	height: 230px;
         font-size: 20px;
         text-align: center;
+        border-radius: 5px;
+        border: 1px solid #ccc;
     }
 }

@@ -113,6 +113,10 @@ function initialize() {
     map.setCenter(marker.getPosition());
   });
 
+ // This is the infowindow
+  var infowindow = new google.maps.InfoWindow({
+     content:"Hello World!"
+  });
   // Opens infowindow on marker click
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);

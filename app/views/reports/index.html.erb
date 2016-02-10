@@ -2,7 +2,7 @@
 	<div class="all-reports-wrapper">
 		<h2>All Reports</h2>
 		<div class="reports">
-			<% @report.reverse.each do |t| %>
+			<% @reports.reverse.each do |t| %>
 				<div class="reports-individual">
 					<h3 class="report-title"><%= t.title %></h3>
 					<p class="report-time-posted">Date of Incident: <%= t.incident_date.strftime("%d %b %Y") %></p>

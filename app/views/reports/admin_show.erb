@@ -3,8 +3,7 @@
 		<h2>Review Flagged Reports / Comments</h2>
 		<hr>
 		<% @reports.each do |r| %>
-			<% r.comments.each do |f| %>
-				<% if r.flag_report == true || f.flag == true  %>
+				<% if r.flag_report == true %>
 					<h3 class="report-title"><%= r.title %></h3>
 					<p class="report-body"><%= r.body %></p>
 					<p class="report-time-posted">Date of Incident: <%= r.incident_date.strftime("%d %b %Y") %></p>
@@ -17,6 +16,7 @@
 						<% end %>
 					<% end %>
 					<br><br>
+			<% r.comments.each do |f| %>
 					<h4>Comments</h4>
 					<p class="commenter">From: <%= f.name %></p>
 					<p class="comment-text"><%= f.body %></p>
@@ -31,5 +31,6 @@
 				<% end %>
 			<% end %>
 		<% end %>
+		<hr>
 	</div>
 </div>

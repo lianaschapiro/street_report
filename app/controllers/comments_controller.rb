@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     if @comment.save
-      flash[:notice] = "Comment edited"
+      flash[:notice] = "Comment Flagged"
       redirect_to root_path
     else
       flash[:notice] = "Unable to edit comment"

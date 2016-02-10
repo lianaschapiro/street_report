@@ -22,6 +22,16 @@ nav {
 		text-decoration: none;
 		}
 	}
+	#mobile_menu {
+		position: fixed;
+		right: 0;
+		margin: 10px 20px 0 0;
+		padding: 5px;
+		color: $default-light-blue;
+		border: 1px solid $default-light-blue;
+		border-radius: 5px;
+		display: none;
+	}
 	ul.right {
 		float: right;
 		li {
@@ -43,9 +53,40 @@ nav {
 	}	
 }
 
-@media all and (max-width: 490px) {
+@media all and (max-width: 520px) {
 	nav {
-		
+		height: auto;
+		// overflow: auto;
+		#mobile_menu {
+			display: block;
+		}
+	}
+	ul.left {
+		width: 100%;
+		text-align: center;
+		border-bottom: 1px solid $default-light-blue;
+
+	}
+ 	ul.right {
+ 		width: 100%;
+ 		display: none;
+		// float: none;
+		li {
+			width: 100%;
+			height: 40px;
+			margin: 10px 0 0 0;
+			display: block;
+			text-align: center;
+			border-bottom: 1px solid $default-light-blue;
+			overflow: none;
+			a:hover {
+				color: $default-light-gray;
+				padding: 10px 100px;
+				background-color: $default-dark-blue;
+			
+			}
+		}
+	    
 	}
 }
 

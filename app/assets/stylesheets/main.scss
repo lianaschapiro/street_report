@@ -78,7 +78,7 @@ hr {
     width: 90%;
     margin: 0 auto;
     text-align: center;
-    padding: 15px 0px 0px;
+    padding: 5px 0px 0px;
     border: #ccc 1px solid;
     border-radius: 0 0 3px 3px;
     background-color: #ffcdbf;
@@ -261,8 +261,13 @@ hr {
         font-size: 14px;
     }
 }
+@media all and (max-width: 1000px){
+    #main-description {
+        width: 20%;
+    }
+}
 
-@media all and (max-width: 720px){
+@media all and (max-width: 800px){
     #main-description {
         float: none;
         width: 90%;
@@ -283,9 +288,15 @@ hr {
 
     #main-map {
         float: none;
-        width: 90%;
+        width: 100%;
         height: auto;
         margin: auto;
         overflow: auto;
+    }
+}
+
+@media all and (max-width: 520px) {
+    .wrapper {
+        margin: 49px auto 0;
     }
 }

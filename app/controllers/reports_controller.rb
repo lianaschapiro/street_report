@@ -19,11 +19,16 @@ class ReportsController < ApplicationController
 
   def create
   	@report = Report.new(report_params)
+    @Lat = @report[:Lat]
+    @Lng = @report[:Lng]
   	if @report.save
   		flash[:notice] = "Incident recorded"
   		redirect_to root_path
   	else
   		flash[:notice] = "#{@report.errors.full_messages.first}"
+        if @Lat == nil || @Lng == nil
+          flash[:notice] = "Please search for a location before adding a report"
+        end
   		redirect_to root_path
   	end
   end

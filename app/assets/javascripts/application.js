@@ -216,8 +216,15 @@ function geocodeAddress(geocoder, resultsMap, address) {
 // ######### NEW REPORT MODAL ############
 
 function openReportModal() {
+  var report_lng = document.getElementById("report_Lng");
+  var report_lat = document.getElementById("report_Lat");
+  if (report_lat.value == false || report_lng.value == false){
+    alert("Please search for a location before adding a report");
+  } else {
   $('#report_outer_modal').fadeIn(200);
+  }
 }
+
 
 function closeReportModal() {
   $('#report_outer_modal').fadeOut(200);
